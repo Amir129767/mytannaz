@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --pink: #ff9bd4;
+    --purple: #c9a2ff;
+    --cream: #fff3f8;
+    --night: #160f32;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--cream);
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background:
+        radial-gradient(ellipse at 50% 42%, #50306d 0%, transparent 44%),
+        linear-gradient(180deg, #15102f 0%, #302044 55%, #171a35 100%);
+}
+
+button {
+    font-family: inherit;
+}
+
+.night-sky {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse at 50% 100%, #d55ca2 0%, transparent 30%),
+        linear-gradient(180deg, transparent 65%, rgba(255, 133, 207, .08));
+    z-index: -1;
+}
+
+.moon {
+    position: fixed;
+    top: 65px;
+    right: 12%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fffdf4, #ffe2f5 65%, #eeb2df);
+    box-shadow:
+        0 0 30px rgba(255, 220, 248, .6),
+        0 0 90px rgba(255, 151, 218, .35);
+    animation: moonGlow 5s ease-in-out infinite alternate;
+    z-index: 0;
+}
+
+.page-heading {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 38px 20px 0;
+}
+
+.heading-small {
+    color: #ffd4ec;
+    font-size: .9rem;
+    letter-spacing: 1px;
+}
+
+.page-heading h1 {
+    margin: 12px 0;
+    font-size: clamp(1.45rem, 4vw, 2.5rem);
+    color: #fff4fb;
+    text-shadow: 0 0 22px rgba(255, 150, 221, .6);
+}
+
+.heading-heart {
+    display: inline-block;
+    color: #ff8fc9;
+    animation: heartbeat 1.8s infinite;
+}
+
+.page-heading p {
+    margin: 0 auto;
+    max-width: 620px;
+    color: #e7cfe9;
+    line-height: 2;
+    font-size: .95rem;
+}
+
+.garden {
+    position: relative;
+    width: min(100%, 900px);
+    height: 590px;
+    margin: 0 auto;
+    isolation: isolate;
+}
+
+.garden-glow {
+    position: absolute;
+    width: 80%;
+    height: 55%;
+    left: 10%;
+    bottom: 4%;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse,
+        rgba(255, 118, 204, .22),
+        rgba(191, 102, 218, .09) 45%,
+        transparent 72%
+    );
+    filter: blur(15px);
+    z-index: -1;
+}
+
+.tree-container {
+    position: absolute;
+    width: min(100%, 620px);
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart-tree {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    overflow: visible;
+    filter: drop-shadow(0 0 12px rgba(246, 133, 221, .15));
+    animation: treeSway 7s ease-in-out infinite;
+    transform-origin: 50% 90%;
+}
+
+.fruit {
+    --fruit-color: #ff9fd8;
+
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 72px;
+    height: 78px;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    filter: drop-shadow(0 0 8px var(--fruit-color));
+    animation:
+        fruitFloat 3.4s ease-in-out infinite,
+        fruitAppear .9s both;
+    animation-delay: var(--delay), var(--delay);
+    transition: filter .3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fruit svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    transform-origin: center;
+    transition: transform .35s ease, filter .35s ease;
+}
+
+.fruit svg path {
+    fill: var(--fruit-color);
+    stroke: rgba(255, 255, 255, .85);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, .35));
+}
+
+.fruit::after {
+    content: "";
+    position: absolute;
+    inset: 12% 15%;
+    border-radius: 50%;
+    background: linear-gradient(
+        130deg,
+        rgba(255, 255, 255, .45),
+        transparent 55%
+    );
+    pointer-events: none;
+    clip-path: polygon(50% 0%, 100% 28%, 85% 75%, 50% 100%, 15% 75%, 0% 28%);
+}
+
+.fruit:hover {
+    z-index: 10;
+    filter: drop-shadow(0 0 20px var(--fruit-color));
+}
+
+.fruit:hover svg {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+.fruit:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 7px;
+    border-radius: 20px;
+}
+
+.fruit-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-3px);
+    display: block;
+    width: max-content;
+    max-width: 140px;
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 213, 242, .25);
+    border-radius: 20px;
+    background: rgba(37, 22, 57, .85);
+    color: #fff2fa;
+    font-size: .72rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s, transform .25s;
+    backdrop-filter: blur(8px);
+}
+
+.fruit:hover .fruit-label,
+.fruit:focus-visible .fruit-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.fruit-pink {
+    --fruit-color: #ff83c8;
+}
+
+.fruit-purple {
+    --fruit-color: #c79bff;
+}
+
+.fruit-gold {
+    --fruit-color: #ffd78b;
+}
+
+.fruit-red {
+    --fruit-color: #ff668f;
+}
+
+.fruit-blue {
+    --fruit-color: #8edcff;
+}
+
+.fruit-lilac {
+    --fruit-color: #f0a9ff;
+}
+
+.garden-flowers {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    color: #ffc7e9;
+    font-size: 2rem;
+    opacity: .9;
+    text-shadow: 0 0 15px #ff8dc9;
+    pointer-events: none;
+}
+
+.garden-flowers span:nth-child(even) {
+    font-size: 1.4rem;
+    animation: flowerSway 3s ease-in-out infinite alternate;
+}
+
+.page-footer {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 5px 20px 30px;
+}
+
+.page-footer p {
+    color: #ffd6ed;
+    text-shadow: 0 0 12px rgba(255, 159, 219, .4);
+}
+
+#backButton {
+    padding: 10px 20px;
+    color: #fff0fa;
+    background: rgba(255, 174, 222, .1);
+    border: 1px solid rgba(255, 205, 238, .4);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#backButton:hover {
+    background: rgba(255, 174, 222, .23);
+    transform: translateY(-2px);
+}
+
+.heart-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    background: rgba(19, 10, 35, .97);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+
+.heart-transition.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.transition-heart {
+    color: #ff87cb;
+    font-size: 100px;
+    line-height: 1;
+    text-shadow:
+        0 0 12px #ff8bcf,
+        0 0 40px #ff5bb7,
+        0 0 100px #ca69ff;
+    animation: heartOpen 1.2s ease-in-out both;
+}
+
+.heart-transition p {
+    color: #ffe4f5;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.star {
+    position: fixed;
+    color: #fff4d8;
+    pointer-events: none;
+    animation: starTwinkle var(--duration, 3s) ease-in-out infinite alternate;
+}
+
+.light {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff1c8;
+    box-shadow: 0 0 12px 4px rgba(255, 198, 237, .65);
+    animation: lightRise var(--duration, 7s) linear infinite;
+    pointer-events: none;
+}
+
+@keyframes moonGlow {
+    from {
+        box-shadow: 0 0 25px rgba(255, 220, 248, .5),
+                    0 0 70px rgba(255, 151, 218, .2);
+    }
+    to {
+        box-shadow: 0 0 40px rgba(255, 220, 248, .8),
+                    0 0 110px rgba(255, 151, 218, .45);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    12% { transform: scale(1.2); }
+    24% { transform: scale(1); }
+    36% { transform: scale(1.13); }
+}
+
+@keyframes treeSway {
+    0%, 100% { transform: rotate(-.3deg); }
+    50% { transform: rotate(.3deg); }
+}
+
+@keyframes fruitFloat {
+    0%, 100% { margin-top: 0; }
+    50% { margin-top: -8px; }
+}
+
+@keyframes fruitAppear {
+    from {
+        opacity: 0;
+        scale: .3;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes flowerSway {
+    from { transform: rotate(-5deg); }
+    to { transform: rotate(5deg); }
+}
+
+@keyframes starTwinkle {
+    from {
+        opacity: .25;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes lightRise {
+    0% {
+        transform: translateY(0) scale(.5);
+        opacity: 0;
+    }
+    15% {
+        opacity: .9;
+    }
+    85% {
+        opacity: .7;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes heartOpen {
+    0% {
+        transform: scale(.2) rotate(-20deg);
+        opacity: 0;
+    }
+    45% {
+        transform: scale(1.35) rotate(8deg);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(.9) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .moon {
+        top: 30px;
+        right: 7%;
+        width: 65px;
+        height: 65px;
+    }
+
+    .page-heading {
+        padding-top: 28px;
+    }
+
+    .page-heading p {
+        font-size: .82rem;
+    }
+
+    .garden {
+        height: 480px;
+    }
+
+    .tree-container {
+        width: 100%;
+    }
+
+    .fruit {
+        width: 55px;
+        height: 60px;
+    }
+
+    .fruit-label {
+        font-size: .65rem;
+        padding: 4px 7px;
+    }
+
+    .garden-flowers {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}

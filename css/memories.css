@@ -1,0 +1,549 @@
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap");
+
+:root {
+    --pink: #e96b9d;
+    --dark-pink: #bd4679;
+    --light-pink: #fff0f6;
+    --cream: #fffaf5;
+    --purple: #b99ae8;
+    --text: #624553;
+    --muted: #997d8a;
+    --border: rgba(220, 143, 177, 0.28);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--text);
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    background:
+        radial-gradient(ellipse at top left, #ffe3ef 0%, transparent 42%),
+        radial-gradient(ellipse at bottom right, #f0e5ff 0%, transparent 38%),
+        linear-gradient(145deg, #fffaf5, #fff1f7 55%, #fffaf5);
+    line-height: 2;
+}
+
+button,
+a {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.background-hearts {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -45px;
+    color: rgba(231, 107, 157, 0.35);
+    animation: float-up linear forwards;
+}
+
+@keyframes float-up {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-115vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+/* سربرگ */
+
+.hero {
+    position: relative;
+    padding: 75px 20px 48px;
+    text-align: center;
+}
+
+.small-title {
+    display: inline-block;
+    color: var(--dark-pink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 8px 0;
+    color: var(--dark-pink);
+    font-size: clamp(2.3rem, 7vw, 4.4rem);
+    line-height: 1.5;
+    text-shadow: 0 7px 25px rgba(223, 108, 157, 0.2);
+    animation: title-appear 1s ease both;
+}
+
+.hero > p {
+    margin: 12px auto;
+    max-width: 520px;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.heart-divider {
+    margin-top: 18px;
+    color: var(--pink);
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+}
+
+@keyframes title-appear {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    width: min(100% - 32px, 1000px);
+    margin: 0 auto;
+}
+
+/* بخش‌های اصلی */
+
+.section-box {
+    padding: 32px;
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.58);
+    box-shadow: 0 15px 45px rgba(186, 112, 145, 0.08);
+    backdrop-filter: blur(8px);
+}
+
+.our-photos {
+    text-align: center;
+}
+
+.our-photos h2,
+.timeline-heading h2 {
+    margin: 0;
+    color: var(--dark-pink);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.section-description,
+.timeline-heading p {
+    color: var(--muted);
+    margin-top: 5px;
+}
+
+/* قاب عکس‌ها */
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.polaroid {
+    margin: 0;
+    padding: 10px 10px 15px;
+    background: #fff;
+    border: 1px solid #f7e7ed;
+    border-radius: 5px;
+    box-shadow: 0 8px 22px rgba(130, 75, 99, 0.13);
+    transform: rotate(-2deg);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2.5deg);
+}
+
+.polaroid:hover {
+    z-index: 2;
+    transform: translateY(-8px) rotate(0) scale(1.04);
+    box-shadow: 0 16px 30px rgba(130, 75, 99, 0.2);
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 3px;
+    background: #fff0f6;
+    cursor: zoom-in;
+}
+
+.polaroid figcaption {
+    padding-top: 10px;
+    color: #855c6f;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+/* معرفی خاطرات */
+
+.memories-intro {
+    max-width: 750px;
+    padding: 35px 24px;
+    margin: 65px auto;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.memories-intro h2 {
+    margin: 10px 0 18px;
+    color: var(--dark-pink);
+    font-size: clamp(1.45rem, 4vw, 2.1rem);
+}
+
+.memories-intro p {
+    color: #806777;
+    line-height: 2.4;
+}
+
+/* خط زمانی */
+
+.timeline-section {
+    padding-bottom: 30px;
+}
+
+.timeline-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.timeline::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 23px;
+    width: 2px;
+    content: "";
+    background: linear-gradient(
+        to bottom,
+        #f4bad2,
+        #d4b9f5,
+        #f4bad2
+    );
+}
+
+.memory-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 15px;
+    margin: 0 0 24px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 8px 25px rgba(173, 111, 142, 0.07);
+    animation: memory-appear 0.7s ease both;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 30px rgba(173, 111, 142, 0.13);
+}
+
+.memory-number {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 4px solid #fff5f9;
+    border-radius: 50%;
+    color: white;
+    background: linear-gradient(145deg, #ee8ab3, #bf8de9);
+    font-size: 0.8rem;
+    font-weight: 800;
+    box-shadow: 0 3px 12px rgba(210, 115, 164, 0.22);
+}
+
+.memory-content {
+    min-width: 0;
+}
+
+.memory-date {
+    display: inline-block;
+    margin-bottom: 3px;
+    color: var(--dark-pink);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.memory-content h3 {
+    margin: 0 0 8px;
+    color: #795268;
+    font-size: 1.12rem;
+}
+
+.memory-content p {
+    margin: 0;
+    color: #846d7b;
+    line-height: 2.25;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.final-memory {
+    border-color: rgba(218, 128, 174, 0.5);
+    background: linear-gradient(
+        130deg,
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 239, 247, 0.9)
+    );
+}
+
+@keyframes memory-appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* پایان صفحه */
+
+.ending-section {
+    position: relative;
+    overflow: hidden;
+    padding: 48px 25px;
+    margin: 45px 0;
+    border: 1px solid rgba(234, 151, 189, 0.35);
+    border-radius: 28px;
+    text-align: center;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.85), transparent 30%),
+        linear-gradient(140deg, #fff0f6, #f6efff);
+}
+
+.ending-heart {
+    color: #e878a9;
+    font-size: 3rem;
+    animation: heart-beat 1.4s ease-in-out infinite;
+}
+
+@keyframes heart-beat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.16);
+    }
+}
+
+.ending-section h2 {
+    margin: 5px 0 15px;
+    color: var(--dark-pink);
+    font-size: clamp(1.35rem, 4vw, 2rem);
+}
+
+.ending-section p {
+    margin: 0;
+    color: #856579;
+    line-height: 2.5;
+}
+
+.ending-section strong {
+    color: var(--dark-pink);
+}
+
+/* دکمه برگشت */
+
+.back-button-container {
+    padding: 10px 0 45px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 1px solid rgba(226, 116, 164, 0.35);
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(135deg, #ed8ab4, #c89be9);
+    box-shadow: 0 8px 20px rgba(206, 119, 166, 0.2);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(206, 119, 166, 0.3);
+}
+
+footer {
+    padding: 20px 15px 30px;
+    color: #a58999;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* نمایش بزرگ عکس */
+
+.photo-modal[hidden] {
+    display: none !important;
+}
+
+.photo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(44, 22, 36, 0.88);
+    backdrop-filter: blur(8px);
+}
+
+.photo-modal img {
+    display: block;
+    max-width: min(90vw, 850px);
+    max-height: 85vh;
+    object-fit: contain;
+    border: 7px solid white;
+    border-radius: 8px;
+    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+}
+
+.photo-modal-close {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    display: grid;
+    width: 45px;
+    height: 45px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    color: white;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* موبایل و تبلت */
+
+@media (max-width: 760px) {
+    .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .section-box {
+        padding: 22px 15px;
+    }
+
+    .hero {
+        padding-top: 50px;
+    }
+
+    .memory-card {
+        padding: 15px 12px;
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .memory-number {
+        width: 38px;
+        height: 38px;
+        font-size: 0.72rem;
+    }
+
+    .timeline::before {
+        right: 18px;
+    }
+
+    .memory-content h3 {
+        font-size: 1rem;
+    }
+
+    .memory-content p {
+        font-size: 0.92rem;
+    }
+
+    .memories-intro {
+        margin: 45px auto;
+        padding: 28px 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    main {
+        width: calc(100% - 20px);
+    }
+
+    .photo-gallery {
+        gap: 12px;
+    }
+
+    .polaroid {
+        padding: 7px 7px 12px;
+    }
+
+    .polaroid figcaption {
+        font-size: 0.77rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

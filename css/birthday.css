@@ -1,0 +1,2770 @@
+:root {
+    --background: #090716;
+    --background-light: #17102b;
+    --pink: #ff8ebd;
+    --pink-light: #ffd1e5;
+    --purple: #b9a0ff;
+    --text: #fff3fa;
+    --muted: #c5b6d9;
+    --glass: rgba(255, 255, 255, 0.065);
+    --border: rgba(255, 255, 255, 0.13);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 50% 0%, #292044 0%, transparent 48%),
+        radial-gradient(ellipse at 0% 70%, #26102f 0%, transparent 45%),
+        var(--background);
+
+    color: var(--text);
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+}
+
+/* آسمان شب */
+
+.night-sky {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.moon {
+    position: absolute;
+    top: 55px;
+    left: 9%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+
+    background: #fff5d8;
+
+    box-shadow:
+        0 0 20px rgba(255, 241, 199, 0.7),
+        0 0 65px rgba(255, 220, 167, 0.35),
+        0 0 120px rgba(255, 203, 232, 0.12);
+
+    animation: moonGlow 5s ease-in-out infinite alternate;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    top: -13px;
+    left: 23px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #17112a;
+    opacity: 0.95;
+}
+
+@keyframes moonGlow {
+    from {
+        filter: brightness(0.95);
+        box-shadow:
+            0 0 20px rgba(255, 241, 199, 0.55),
+            0 0 50px rgba(255, 220, 167, 0.2);
+    }
+
+    to {
+        filter: brightness(1.08);
+        box-shadow:
+            0 0 30px rgba(255, 241, 199, 0.8),
+            0 0 80px rgba(255, 220, 167, 0.4);
+    }
+}
+
+.stars,
+.floating-lights {
+    position: absolute;
+    inset: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+    animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+.floating-light {
+    position: absolute;
+    bottom: -30px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffc3df;
+
+    box-shadow:
+        0 0 10px #ff9bcb,
+        0 0 24px rgba(255, 139, 200, 0.7);
+
+    animation: floatingUp linear infinite;
+}
+
+@keyframes floatingUp {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate3d(35px, -110vh, 0);
+        opacity: 0;
+    }
+}
+
+/* ساختار اصلی صفحه */
+
+.birthday-page {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 32px, 850px);
+    margin: 0 auto;
+    padding: 65px 0 35px;
+}
+
+/* عنوان */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.small-label {
+    color: var(--pink);
+    font-size: 11px;
+    letter-spacing: 5px;
+    direction: ltr;
+    margin-bottom: 17px;
+    opacity: 0.85;
+}
+
+.page-header h1 {
+    font-size: clamp(30px, 6vw, 47px);
+    font-weight: 800;
+    line-height: 1.8;
+
+    text-shadow:
+        0 0 25px rgba(255, 142, 189, 0.2);
+}
+
+.page-header h1 span {
+    color: var(--pink);
+    display: inline-block;
+}
+
+.header-description {
+    margin-top: 13px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.2;
+    font-weight: 300;
+}
+
+.heart-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin-top: 23px;
+    color: var(--pink);
+    font-size: 19px;
+}
+
+.heart-divider span {
+    display: block;
+    width: 55px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 142, 189, 0.7)
+    );
+}
+
+.heart-divider span:last-child {
+    transform: rotate(180deg);
+}
+
+/* کارت تولد */
+
+.birthday-card {
+    position: relative;
+    overflow: hidden;
+    padding: 37px 25px;
+    text-align: center;
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 188, 222, 0.10),
+            rgba(160, 125, 255, 0.07)
+        );
+
+    border: 1px solid rgba(255, 195, 226, 0.22);
+
+    box-shadow:
+        0 15px 60px rgba(0, 0, 0, 0.18),
+        inset 0 0 40px rgba(255, 255, 255, 0.015);
+
+    backdrop-filter: blur(14px);
+}
+
+.card-glow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    top: -190px;
+    left: calc(50% - 130px);
+    border-radius: 50%;
+
+    background: rgba(255, 135, 197, 0.16);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.birthday-icon {
+    font-size: 43px;
+    margin-bottom: 17px;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.birthday-intro {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 13px;
+}
+
+.birthday-date {
+    color: var(--pink-light);
+    font-size: clamp(27px, 5vw, 39px);
+    font-weight: 800;
+
+    text-shadow:
+        0 0 24px rgba(255, 142, 189, 0.25);
+}
+
+.birthday-message {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2.2;
+    margin-top: 17px;
+}
+
+.date-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.date-badge {
+    min-width: 95px;
+    padding: 12px 15px;
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.055);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.badge-number {
+    display: block;
+    color: var(--pink-light);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.badge-label {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* بخش تقویم */
+
+.calendar-section {
+    margin-top: 75px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-symbol {
+    display: inline-block;
+    font-size: 31px;
+    color: var(--pink);
+    margin-bottom: 8px;
+}
+
+.section-heading h2 {
+    font-size: clamp(21px, 4vw, 28px);
+    font-weight: 700;
+}
+
+.section-heading p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.calendar-card {
+    width: min(100%, 570px);
+    margin: 0 auto;
+    padding: 24px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.16),
+        inset 0 0 30px rgba(255, 255, 255, 0.015);
+
+    backdrop-filter: blur(15px);
+}
+
+.calendar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 3px 23px;
+}
+
+.calendar-month-icon {
+    font-size: 32px;
+}
+
+.calendar-month-info {
+    text-align: center;
+}
+
+.calendar-month-info h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--pink-light);
+}
+
+.calendar-month-info p {
+    color: var(--muted);
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.calendar-heart {
+    font-size: 26px;
+    filter: drop-shadow(0 0 10px rgba(255, 93, 151, 0.45));
+    animation: heartBeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    12% {
+        transform: scale(1.13);
+    }
+
+    24% {
+        transform: scale(1);
+    }
+
+    36% {
+        transform: scale(1.08);
+    }
+}
+
+/* روزهای هفته */
+
+.calendar-weekdays,
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    text-align: center;
+}
+
+.calendar-weekdays {
+    padding: 15px 0;
+    margin-bottom: 8px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.09);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.calendar-weekdays div {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.calendar-days {
+    gap: 8px 3px;
+}
+
+.calendar-day,
+.calendar-empty {
+    aspect-ratio: 1 / 1;
+    min-width: 0;
+}
+
+.calendar-empty {
+    display: block;
+}
+
+.calendar-day {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 13px;
+
+    font-family: inherit;
+    font-size: 14px;
+    color: #f6eafa;
+
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid transparent;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.calendar-day:hover {
+    background: rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+}
+
+.calendar-day.birthday {
+    color: #fff;
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ff6da9,
+            #d83d8e
+        );
+
+    border: 1px solid rgba(255, 218, 235, 0.8);
+
+    box-shadow:
+        0 0 15px rgba(255, 92, 159, 0.35),
+        0 0 30px rgba(255, 92, 159, 0.12);
+
+    animation: birthdayPulse 2s ease-in-out infinite;
+}
+
+.calendar-day.birthday::after {
+    content: "♥";
+    position: absolute;
+    top: -7px;
+    right: -3px;
+
+    color: #ffb7d5;
+    font-size: 12px;
+
+    text-shadow: 0 0 8px rgba(255, 111, 169, 0.6);
+}
+
+@keyframes birthdayPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 12px rgba(255, 92, 159, 0.3),
+            0 0 25px rgba(255, 92, 159, 0.1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(255, 92, 159, 0.5),
+            0 0 40px rgba(255, 92, 159, 0.2);
+    }
+}
+
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 23px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.legend-heart {
+    color: var(--pink);
+    font-size: 18px;
+}
+
+.calendar-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2.2;
+    margin-top: 18px;
+}
+
+/* پیام عاشقانه */
+
+.love-note {
+    position: relative;
+    margin-top: 70px;
+    padding: 32px 25px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(177, 142, 255, 0.09),
+            rgba(255, 144, 198, 0.055)
+        );
+
+    border: 1px solid rgba(202, 176, 255, 0.15);
+}
+
+.love-note-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 12px rgba(255, 240, 204, 0.2));
+}
+
+.love-note h2 {
+    color: var(--pink-light);
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.love-note p {
+    color: #e0d5ec;
+    font-size: 14px;
+    line-height: 2.5;
+    font-weight: 300;
+}
+
+.love-signature {
+    margin-top: 25px;
+    color: var(--pink);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* تزئینات پایانی */
+
+.bottom-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 50px;
+    color: var(--pink);
+    opacity: 0.75;
+}
+
+.bottom-decoration span:nth-child(2) {
+    font-size: 25px;
+}
+
+.bottom-decoration span:first-child,
+.bottom-decoration span:last-child {
+    font-size: 13px;
+}
+
+.back-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    margin: 35px auto 0;
+    padding: 13px 24px;
+
+    border: 1px solid rgba(255, 166, 211, 0.3);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--pink-light);
+
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.back-button span {
+    font-size: 19px;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 142, 189, 0.12);
+
+    box-shadow:
+        0 8px 25px rgba(255, 105, 173, 0.12);
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(220, 202, 232, 0.55);
+    font-size: 11px;
+}
+
+/* نمایش در موبایل */
+
+@media (max-width: 520px) {
+
+    .birthday-page {
+        width: min(100% - 24px, 850px);
+        padding-top: 45px;
+    }
+
+    .moon {
+        width: 70px;
+        height: 70px;
+        left: 6%;
+        top: 35px;
+    }
+
+    .moon::after {
+        width: 70px;
+        height: 70px;
+        top: -9px;
+        left: 16px;
+    }
+
+    .page-header {
+        margin-bottom: 32px;
+    }
+
+    .small-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .header-description {
+        font-size: 13px;
+    }
+
+    .birthday-card {
+        padding: 29px 17px;
+        border-radius: 23px;
+    }
+
+    .birthday-intro {
+        font-size: 12px;
+    }
+
+    .birthday-message {
+        font-size: 12px;
+    }
+
+    .date-badges {
+        gap: 8px;
+    }
+
+    .date-badge {
+        min-width: 80px;
+        padding: 10px;
+    }
+
+    .badge-number {
+        font-size: 16px;
+    }
+
+    .calendar-section {
+        margin-top: 55px;
+    }
+
+    .calendar-card {
+        padding: 15px 10px;
+        border-radius: 20px;
+    }
+
+    .calendar-weekdays div {
+        font-size: 9px;
+    }
+
+    .calendar-days {
+        gap: 6px 2px;
+    }
+
+    .calendar-day {
+        border-radius: 9px;
+        font-size: 12px;
+    }
+
+    .calendar-day.birthday::after {
+        top: -5px;
+        right: -2px;
+        font-size: 10px;
+    }
+
+    .love-note {
+        margin-top: 50px;
+        padding: 27px 16px;
+    }
+
+    .love-note h2 {
+        font-size: 20px;
+    }
+
+    .love-note p {
+        font-size: 12px;
+        line-height: 2.4;
+    }
+
+    .back-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* ==========================================
+   شمارش معکوس تولد طناز
+   ========================================== */
+
+.countdown-section {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 65px;
+    padding: 38px 22px;
+    text-align: center;
+    border-radius: 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 142, 189, 0.18),
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 142, 189, 0.045)
+        );
+
+    border: 1px solid rgba(255, 184, 219, 0.23);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.15),
+        inset 0 0 35px rgba(255, 255, 255, 0.02);
+
+    backdrop-filter: blur(15px);
+}
+
+.countdown-section::before,
+.countdown-section::after {
+    content: "♡";
+    position: absolute;
+    color: rgba(255, 172, 211, 0.17);
+    font-size: 100px;
+    pointer-events: none;
+}
+
+.countdown-section::before {
+    top: -23px;
+    right: 15px;
+    transform: rotate(-18deg);
+}
+
+.countdown-section::after {
+    bottom: -48px;
+    left: 15px;
+    transform: rotate(18deg);
+}
+
+.countdown-decoration {
+    position: absolute;
+    font-size: 30px;
+    animation: countdownDecorationFloat 3s ease-in-out infinite;
+}
+
+.countdown-decoration-left {
+    top: 22px;
+    left: 25px;
+}
+
+.countdown-decoration-right {
+    right: 25px;
+    bottom: 25px;
+    animation-delay: 1s;
+}
+
+@keyframes countdownDecorationFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(8deg);
+    }
+}
+
+.countdown-small-title {
+    position: relative;
+    z-index: 1;
+    color: var(--pink);
+    font-size: 10px;
+    letter-spacing: 3px;
+    direction: ltr;
+    margin-bottom: 12px;
+}
+
+.countdown-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 42px;
+    margin-bottom: 8px;
+    animation: countdownCakeFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes countdownCakeFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(3deg);
+    }
+}
+
+.countdown-title {
+    position: relative;
+    z-index: 1;
+    color: #ffe1ef;
+    font-size: clamp(23px, 5vw, 34px);
+    font-weight: 800;
+    line-height: 1.8;
+    text-shadow: 0 0 25px rgba(255, 142, 189, 0.2);
+}
+
+.countdown-description {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2.2;
+}
+
+.countdown-timer {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(5px, 2vw, 13px);
+
+    margin: 28px auto 22px;
+    direction: ltr;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: clamp(59px, 13vw, 92px);
+    min-height: 87px;
+    padding: 12px 4px;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.065);
+    border: 1px solid rgba(255, 195, 226, 0.2);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.08),
+        inset 0 0 20px rgba(255, 255, 255, 0.025);
+}
+
+.countdown-number {
+    color: #ffd7e9;
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    font-size: clamp(22px, 5vw, 35px);
+    font-weight: 800;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+
+    text-shadow: 0 0 16px rgba(255, 142, 189, 0.28);
+}
+
+.countdown-label {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.countdown-separator {
+    color: #ff9fc9;
+    font-size: 25px;
+    font-weight: 800;
+    transform: translateY(-7px);
+    animation: separatorBlink 1s steps(2, start) infinite;
+}
+
+@keyframes separatorBlink {
+    to {
+        opacity: 0.35;
+    }
+}
+
+.countdown-date {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    color: #ffd7e9;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.countdown-date span {
+    font-size: 14px;
+}
+
+.countdown-footnote {
+    position: relative;
+    z-index: 1;
+    color: rgba(220, 202, 232, 0.7);
+    font-size: 11px;
+    margin-top: 15px;
+    line-height: 2;
+}
+
+
+/* ==========================================
+   بخش جشن تولد
+   ========================================== */
+
+.birthday-celebration {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    padding: 25px 15px 40px;
+
+    color: #7a2455;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255, 255, 255, 0.95),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 255, 255, 0.75),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #ffb8dc 0%,
+            #ff8fc9 30%,
+            #ffc3e2 60%,
+            #ff9ed1 100%
+        );
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+.birthday-celebration.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: celebrationBackground 8s ease-in-out infinite alternate;
+}
+
+@keyframes celebrationBackground {
+    0% {
+        background-color: #ffacd7;
+    }
+
+    50% {
+        background-color: #ff91c9;
+    }
+
+    100% {
+        background-color: #ffd0e8;
+    }
+}
+
+.birthday-celebration *,
+.birthday-celebration *::before,
+.birthday-celebration *::after {
+    box-sizing: border-box;
+}
+
+.celebration-glow {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(65px);
+    pointer-events: none;
+}
+
+.celebration-glow-one {
+    top: -100px;
+    left: -70px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.celebration-glow-two {
+    right: -100px;
+    top: 35%;
+    background: rgba(255, 69, 163, 0.28);
+}
+
+.celebration-glow-three {
+    bottom: -130px;
+    left: 25%;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.celebration-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(100%, 760px);
+    margin: auto;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(35px) scale(0.95);
+}
+
+.birthday-celebration.active .celebration-content {
+    animation: partyContentEnter 1s 0.3s ease forwards;
+}
+
+@keyframes partyContentEnter {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.party-top-label {
+    color: #a42c70;
+    font-size: 10px;
+    letter-spacing: 3px;
+    direction: ltr;
+    font-weight: 800;
+}
+
+.party-cake {
+    margin: 12px 0;
+    font-size: clamp(48px, 10vw, 75px);
+    filter: drop-shadow(0 10px 15px rgba(185, 45, 116, 0.18));
+    animation: partyCakeBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes partyCakeBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(4deg);
+    }
+}
+
+.party-title {
+    color: #9c205f;
+    font-size: clamp(32px, 7vw, 62px);
+    line-height: 1.7;
+    font-weight: 800;
+
+    text-shadow:
+        0 3px 0 rgba(255, 255, 255, 0.5),
+        0 8px 25px rgba(171, 32, 102, 0.16);
+}
+
+.party-title span {
+    display: block;
+    color: #c52379;
+}
+
+.party-subtitle {
+    margin-top: 8px;
+    color: #87335e;
+    font-size: clamp(13px, 3vw, 17px);
+    line-height: 2;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   شخصیت‌های کارتونی متحرک
+   ========================================== */
+
+.party-character-stage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(4px, 2vw, 18px);
+
+    margin: 30px auto 26px;
+}
+
+.party-character {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: clamp(62px, 13vw, 105px);
+    height: clamp(95px, 18vw, 140px);
+
+    animation: characterDance 0.85s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+}
+
+.party-character:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.party-character:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.party-character:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.party-character:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+@keyframes characterDance {
+    0% {
+        transform: translateY(0) rotate(-7deg);
+    }
+
+    100% {
+        transform: translateY(-13px) rotate(7deg);
+    }
+}
+
+.character-body {
+    position: relative;
+    z-index: 2;
+    display: block;
+
+    font-size: clamp(45px, 10vw, 78px);
+    line-height: 1.2;
+
+    filter: drop-shadow(0 8px 7px rgba(154, 34, 95, 0.14));
+}
+
+.character-accessory {
+    position: relative;
+    z-index: 3;
+
+    display: block;
+    font-size: clamp(17px, 4vw, 27px);
+
+    margin-bottom: -4px;
+
+    animation: accessoryWiggle 0.7s ease-in-out infinite alternate;
+}
+
+.character-action {
+    position: absolute;
+    top: 10%;
+    right: -2px;
+
+    font-size: clamp(16px, 3vw, 23px);
+
+    animation: actionHeart 1s ease-in-out infinite;
+}
+
+@keyframes accessoryWiggle {
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform: rotate(12deg);
+    }
+}
+
+@keyframes actionHeart {
+    0%, 100% {
+        transform: scale(0.8) rotate(-10deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+}
+
+
+/* ==========================================
+   کارت تبریک جشن
+   ========================================== */
+
+.party-wish-card {
+    width: min(100%, 510px);
+    margin: 0 auto;
+
+    padding: 25px 20px;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 20px 60px rgba(161, 32, 101, 0.12),
+        inset 0 0 30px rgba(255, 255, 255, 0.7);
+
+    backdrop-filter: blur(12px);
+}
+
+.party-wish-hearts {
+    font-size: 21px;
+    margin-bottom: 10px;
+    animation: wishHeartsBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes wishHeartsBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.party-wish-card h2 {
+    color: #ad246b;
+    font-size: clamp(23px, 5vw, 32px);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.party-wish-card p {
+    color: #87335e;
+    font-size: clamp(13px, 3vw, 15px);
+    font-weight: 500;
+    line-height: 2.5;
+}
+
+.party-wish-footer {
+    margin-top: 20px;
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(183, 53, 119, 0.15);
+
+    color: #c12579;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 2;
+}
+
+
+/* ==========================================
+   کاغذرنگی‌ها
+   ========================================== */
+
+.confetti-container,
+.celebration-hearts,
+.balloons-container {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.confetti-container {
+    z-index: 2;
+}
+
+.celebration-hearts {
+    z-index: 3;
+}
+
+.balloons-container {
+    z-index: 2;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -25px;
+
+    width: 9px;
+    height: 15px;
+
+    border-radius: 2px;
+
+    animation: confettiFall linear forwards;
+}
+
+.confetti-piece.circle {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.confetti-piece.star {
+    width: auto;
+    height: auto;
+
+    color: #fff;
+    background: transparent;
+    box-shadow: none;
+
+    font-size: 17px;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translate3d(0, -5vh, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(var(--confetti-drift), 110vh, 0) rotate(var(--confetti-rotation));
+        opacity: 0.2;
+    }
+}
+
+
+/* ==========================================
+   انفجار قلب‌ها
+   ========================================== */
+
+.celebration-heart {
+    position: absolute;
+
+    display: block;
+
+    font-size: var(--heart-size, 25px);
+
+    left: var(--heart-x, 50%);
+    top: var(--heart-y, 50%);
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%) scale(0);
+
+    animation: heartExplosion var(--heart-duration, 2.5s) ease-out forwards;
+
+    filter: drop-shadow(0 4px 8px rgba(187, 28, 110, 0.12));
+}
+
+@keyframes heartExplosion {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.1) rotate(0deg);
+    }
+
+    12% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.4) rotate(20deg);
+    }
+
+    35% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--heart-dx)),
+                calc(-50% + var(--heart-dy))
+            )
+            scale(0.6)
+            rotate(var(--heart-rotation));
+    }
+}
+
+
+/* ==========================================
+   بادکنک‌های متحرک
+   ========================================== */
+
+.party-balloon {
+    position: absolute;
+    bottom: -150px;
+
+    width: 42px;
+    height: 54px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    background: var(--balloon-color);
+
+    box-shadow:
+        inset -8px -8px 15px rgba(0, 0, 0, 0.08),
+        inset 8px 8px 14px rgba(255, 255, 255, 0.35),
+        0 5px 20px rgba(175, 40, 108, 0.12);
+
+    animation: balloonRise var(--balloon-duration, 10s) linear forwards;
+}
+
+.party-balloon::before {
+    content: "";
+    position: absolute;
+
+    bottom: -5px;
+    left: calc(50% - 5px);
+
+    width: 10px;
+    height: 10px;
+
+    background: var(--balloon-color);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.party-balloon::after {
+    content: "";
+
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+
+    width: 1px;
+    height: 90px;
+
+    background: rgba(120, 55, 95, 0.35);
+}
+
+@keyframes balloonRise {
+    0% {
+        transform: translateY(0) rotate(-8deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-60vh) rotate(8deg);
+    }
+
+    100% {
+        transform: translateY(-125vh) rotate(-8deg);
+        opacity: 0;
+    }
+}
+
+
+/* ==========================================
+   دکمه‌های جشن
+   ========================================== */
+
+.replay-celebration-button,
+.sound-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    margin: 22px 5px 0;
+    padding: 12px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.65);
+    color: #a62567;
+
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(160, 35, 98, 0.09);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.replay-celebration-button:hover,
+.sound-button:hover {
+    transform: translateY(-3px);
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(160, 35, 98, 0.15);
+}
+
+.mute-button {
+    position: fixed;
+    z-index: 20;
+
+    bottom: 18px;
+    left: 18px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.8);
+    color: #a62567;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(160, 35, 98, 0.12);
+}
+
+
+/* ==========================================
+   نمایش موبایل
+   ========================================== */
+
+@media (max-width: 520px) {
+
+    .countdown-section {
+        margin-bottom: 45px;
+        padding: 32px 10px;
+        border-radius: 24px;
+    }
+
+    .countdown-decoration-left {
+        top: 12px;
+        left: 12px;
+        font-size: 22px;
+    }
+
+    .countdown-decoration-right {
+        right: 12px;
+        bottom: 12px;
+        font-size: 22px;
+    }
+
+    .countdown-small-title {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .countdown-description {
+        font-size: 12px;
+    }
+
+    .countdown-timer {
+        gap: 4px;
+        margin-top: 22px;
+    }
+
+    .countdown-unit {
+        width: calc((100% - 35px) / 4);
+        min-height: 72px;
+        padding: 8px 2px;
+        border-radius: 12px;
+    }
+
+    .countdown-number {
+        font-size: clamp(18px, 5.5vw, 27px);
+    }
+
+    .countdown-label {
+        font-size: 9px;
+    }
+
+    .countdown-separator {
+        font-size: 18px;
+    }
+
+    .countdown-date {
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .birthday-celebration {
+        padding: 22px 12px 35px;
+    }
+
+    .party-top-label {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .party-character-stage {
+        gap: 0;
+        margin: 20px auto;
+    }
+
+    .party-character {
+        width: 19%;
+        height: 100px;
+    }
+
+    .character-body {
+        font-size: clamp(34px, 9vw, 50px);
+    }
+
+    .character-accessory {
+        font-size: 17px;
+    }
+
+    .character-action {
+        font-size: 15px;
+        right: 0;
+    }
+
+    .party-wish-card {
+        padding: 22px 13px;
+        border-radius: 23px;
+    }
+
+    .party-wish-card p {
+        font-size: 12px;
+        line-height: 2.4;
+    }
+
+    .party-wish-footer {
+        font-size: 12px;
+    }
+
+    .replay-celebration-button,
+    .sound-button {
+        width: 100%;
+        max-width: 260px;
+        margin: 10px auto 0;
+        padding: 12px;
+    }
+
+    .mute-button {
+        bottom: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* ==========================================
+   کاهش انیمیشن برای افرادی که این گزینه را
+   در سیستم خود فعال کرده‌اند
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .countdown-section *,
+    .birthday-celebration *,
+    .birthday-celebration *::before,
+    .birthday-celebration *::after {
+        scroll-behavior: auto !important;
+    }
+}
+/* ================================
+   Birthday Cake
+================================ */
+
+.birthday-cake-section {
+    width: min(100% - 28px, 650px);
+    margin: 45px auto;
+    padding: 28px 20px;
+
+    border: 1px solid rgba(255, 192, 220, 0.2);
+    border-radius: 28px;
+
+    background:
+        radial-gradient(
+            ellipse at top,
+            rgba(168, 110, 196, 0.15),
+            rgba(24, 15, 39, 0.94)
+        );
+
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.18);
+
+    text-align: center;
+    color: #fff4fa;
+}
+
+.cake-heading h2 {
+    margin: 8px 0;
+    font-size: clamp(22px, 5vw, 30px);
+}
+
+.cake-heading p,
+.wishes-heading p {
+    color: #c9b8d3;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.cake-sparkle {
+    font-size: 30px;
+}
+
+.cake-stage {
+    position: relative;
+
+    width: min(100%, 360px);
+    height: 300px;
+
+    margin: 20px auto 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.cake-glow {
+    position: absolute;
+
+    width: 260px;
+    height: 190px;
+
+    bottom: 30px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 112, 183, 0.17);
+    filter: blur(45px);
+
+    animation: cakeGlowPulse 3s ease-in-out infinite;
+}
+
+.birthday-cake {
+    position: relative;
+    z-index: 2;
+
+    width: 245px;
+    height: 145px;
+}
+
+.cake-layer {
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #d96a9f 0px,
+            #d96a9f 18px,
+            #ed91bb 18px,
+            #ed91bb 36px
+        );
+
+    box-shadow:
+        inset 0 -8px 0 rgba(109, 39, 80, 0.14),
+        0 8px 18px rgba(0, 0, 0, 0.14);
+}
+
+.cake-layer-top {
+    bottom: 63px;
+
+    height: 68px;
+
+    border-radius: 14px 14px 9px 9px;
+}
+
+.cake-layer-bottom {
+    bottom: 0;
+
+    height: 73px;
+
+    border-radius: 10px 10px 20px 20px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #a878e5 0px,
+            #a878e5 20px,
+            #bf94f0 20px,
+            #bf94f0 40px
+        );
+}
+
+.cake-top {
+    position: absolute;
+    z-index: 3;
+
+    top: -3px;
+    left: -4px;
+
+    width: calc(100% + 8px);
+    height: 29px;
+
+    border-radius: 50%;
+
+    background: #ffd2e5;
+
+    box-shadow:
+        inset 0 -5px 0 rgba(218, 101, 157, 0.14),
+        0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cake-icing {
+    position: absolute;
+
+    top: 12px;
+    left: 0;
+
+    width: 100%;
+    height: 20px;
+
+    background: #ffd2e5;
+    border-radius: 0 0 12px 12px;
+}
+
+.cake-decoration {
+    position: absolute;
+    z-index: 4;
+
+    top: 2px;
+
+    color: #ed619f;
+    font-size: 17px;
+}
+
+.decoration-one {
+    left: 22%;
+}
+
+.decoration-two {
+    left: 47%;
+}
+
+.decoration-three {
+    left: 72%;
+}
+
+.cake-plate {
+    position: absolute;
+
+    bottom: -10px;
+    left: -20px;
+
+    width: calc(100% + 40px);
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        180deg,
+        #f8d8f4,
+        #bca0d5
+    );
+
+    box-shadow: 0 7px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* شمع‌ها */
+
+.birthday-candles {
+    position: absolute;
+    z-index: 5;
+
+    bottom: 190px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.candle {
+    position: relative;
+
+    width: 13px;
+    height: 68px;
+}
+
+.candle-body {
+    position: absolute;
+    bottom: 0;
+
+    width: 13px;
+    height: 60px;
+
+    border-radius: 4px 4px 2px 2px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff5fb 0px,
+            #fff5fb 5px,
+            #ef92c4 5px,
+            #ef92c4 10px
+        );
+
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.flame {
+    position: absolute;
+    z-index: 2;
+
+    left: 50%;
+    top: -8px;
+
+    width: 16px;
+    height: 25px;
+
+    transform: translateX(-50%);
+    transform-origin: center bottom;
+
+    border-radius: 55% 45% 55% 45%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 72%,
+            #fffde4 0%,
+            #ffe16a 35%,
+            #ff9d42 70%,
+            #ff6d85 100%
+        );
+
+    box-shadow:
+        0 0 9px #ffd77a,
+        0 0 20px rgba(255, 173, 91, 0.8);
+
+    animation: candleFlame 0.65s ease-in-out infinite alternate;
+}
+
+.candle:nth-child(2) .flame {
+    animation-delay: -0.2s;
+}
+
+.candle:nth-child(3) .flame {
+    animation-delay: -0.4s;
+}
+
+@keyframes candleFlame {
+    0% {
+        transform: translateX(-50%) rotate(-5deg) scale(1);
+    }
+
+    100% {
+        transform: translateX(-50%) rotate(5deg) scale(0.9, 1.08);
+    }
+}
+
+@keyframes cakeGlowPulse {
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+/* خاموش شدن شمع‌ها */
+
+.birthday-candles.candles-extinguished .flame {
+    animation: none;
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.birthday-candles.candles-extinguished::after {
+    content: "💨";
+
+    position: absolute;
+    top: -30px;
+    left: 50%;
+
+    font-size: 30px;
+
+    transform: translateX(-50%);
+
+    animation: smokeRise 1.1s ease-out forwards;
+}
+
+@keyframes smokeRise {
+    0% {
+        opacity: 0.8;
+        transform: translate(-50%, 0) scale(0.7);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -45px) scale(1.5);
+    }
+}
+
+/* دکمه میکروفون */
+
+.cake-controls {
+    width: min(100%, 400px);
+    margin: 0 auto;
+}
+
+.cake-button {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(
+        110deg,
+        #f29ac3,
+        #b9a0f5
+    );
+
+    color: #29152f;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+}
+
+.cake-button:hover {
+    transform: translateY(-2px);
+}
+
+.cake-button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none;
+}
+
+.cake-status {
+    min-height: 25px;
+
+    margin: 12px 0;
+
+    color: #c9b8d3;
+
+    font-size: 12px;
+    line-height: 2;
+}
+
+.microphone-meter {
+    width: 100%;
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#microphoneMeterFill {
+    width: 0%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #ba9aff,
+        #ff94c8
+    );
+
+    transition: width 0.08s linear;
+}
+
+/* پیام تولد */
+
+.candles-blown-message {
+    margin: 25px auto 10px;
+
+    animation: cakeMessageAppear 0.65s ease both;
+}
+
+.candles-blown-message h3 {
+    color: #ffc1df;
+    font-size: 22px;
+}
+
+.candles-blown-message p {
+    color: #e4d4e8;
+    font-size: 13px;
+    line-height: 2;
+}
+
+@keyframes cakeMessageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* فرم سه آرزو */
+
+.birthday-wishes-section {
+    width: min(100%, 480px);
+    margin: 30px auto 0;
+
+    padding: 23px;
+
+    border: 1px solid rgba(255, 192, 220, 0.15);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    animation: cakeMessageAppear 0.6s ease both;
+}
+
+.wishes-heading > span {
+    font-size: 30px;
+}
+
+.wishes-heading h3 {
+    margin: 8px 0;
+    font-size: 22px;
+}
+
+.wish-input-group {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.wish-input-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #ffd3e8;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.wish-input-group textarea {
+    display: block;
+
+    width: 100%;
+    min-height: 100px;
+
+    resize: vertical;
+
+    padding: 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 13px;
+
+    background: rgba(10, 6, 18, 0.45);
+
+    color: #fff4fa;
+
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 2;
+
+    outline: none;
+}
+
+.wish-input-group textarea::placeholder {
+    color: #92829d;
+}
+
+.wish-input-group textarea:focus {
+    border-color: #ed8cb8;
+
+    box-shadow:
+        0 0 0 3px rgba(237, 140, 184, 0.1);
+}
+
+.save-wishes-button {
+    margin-top: 24px;
+}
+
+#birthdayWishesStatus {
+    overflow-wrap: anywhere;
+}
+
+#birthdayWishesStatus.success {
+    color: #91e4bb;
+}
+
+#birthdayWishesStatus.error {
+    color: #ff9eae;
+}
+
+@media (max-width: 480px) {
+    .birthday-cake-section {
+        padding: 24px 14px;
+    }
+
+    .cake-stage {
+        transform: scale(0.9);
+        transform-origin: center bottom;
+        margin-top: 0;
+        margin-bottom: -10px;
+    }
+
+    .birthday-wishes-section {
+        padding: 17px;
+    }
+}
+/* ==========================================
+   جشن عاشقانه پس از خاموش شدن شمع‌ها
+   ========================================== */
+
+body.birthday-party-active {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 105, 180, 0.28),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 0% 70%,
+            rgba(170, 70, 160, 0.22),
+            transparent 50%
+        ),
+        #090716;
+
+    background-attachment: fixed;
+}
+
+/* فرم آرزوها ظاهر اصلی خودش را حفظ کند */
+#birthdayCakeSection {
+    position: relative;
+    z-index: 1;
+}
+
+/* پس‌زمینه جشن کلیک‌ها را مسدود نکند */
+#birthdayCelebration {
+    pointer-events: none;
+}
+/* ==========================================
+   جشن صورتی و عاشقانه پس از خاموش شدن شمع‌ها
+   ========================================== */
+
+body.birthday-party-active {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 255, 255, 0.65),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 10% 30%,
+            rgba(255, 105, 180, 0.55),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 90% 75%,
+            rgba(255, 160, 210, 0.55),
+            transparent 45%
+        ),
+        linear-gradient(
+            135deg,
+            #ffb6d9 0%,
+            #ff8fc8 35%,
+            #ffc6e2 70%,
+            #ffacd4 100%
+        ) !important;
+
+    background-attachment: fixed;
+    transition: background 1s ease;
+}
+
+/* محتوای اصلی صفحه روی پس‌زمینه باقی بماند */
+body.birthday-party-active .birthday-page {
+    position: relative;
+    z-index: 1;
+}
+
+/* بخش کیک و آرزوها روی پس‌زمینه دیده شود */
+body.birthday-party-active #birthdayCakeSection {
+    position: relative;
+    z-index: 5;
+
+    border-color: rgba(255, 255, 255, 0.65);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.48),
+            rgba(255, 225, 240, 0.32)
+        );
+
+    box-shadow:
+        0 15px 55px rgba(199, 48, 119, 0.16),
+        inset 0 0 35px rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(12px);
+}
+
+/* رنگ نوشته‌های بخش کیک در پس‌زمینه صورتی */
+body.birthday-party-active #birthdayCakeSection .cake-heading h2,
+body.birthday-party-active #birthdayCakeSection .wishes-heading h3 {
+    color: #a82768;
+}
+
+body.birthday-party-active #birthdayCakeSection .cake-heading p,
+body.birthday-party-active #birthdayCakeSection .wishes-heading p,
+body.birthday-party-active #birthdayCakeSection .candles-blown-message p {
+    color: #803456;
+}
+
+body.birthday-party-active #birthdayCakeSection .candles-blown-message h3 {
+    color: #b52570;
+}
+
+/* فرم آرزوها */
+body.birthday-party-active #birthdayWishesSection {
+    position: relative;
+    z-index: 6;
+
+    background: rgba(255, 255, 255, 0.48);
+    border-color: rgba(255, 255, 255, 0.7);
+
+    box-shadow: 0 10px 35px rgba(177, 40, 104, 0.1);
+}
+
+body.birthday-party-active #birthdayWishesSection .wish-input-group label {
+    color: #9e285f;
+}
+
+body.birthday-party-active #birthdayWishesSection textarea {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(205, 65, 132, 0.22);
+    color: #702348;
+}
+
+body.birthday-party-active #birthdayWishesSection textarea::placeholder {
+    color: #b77b9a;
+}
+
+/* لایه جشن نباید مانع کلیک روی فرم شود */
+body.birthday-party-active #birthdayCelebration {
+    pointer-events: none;
+}
+
+/* قلب‌ها و کاغذرنگی‌ها روی صفحه حرکت کنند اما کلیک نگیرند */
+body.birthday-party-active #celebrationHearts,
+body.birthday-party-active #confettiContainer,
+body.birthday-party-active #balloonsContainer {
+    pointer-events: none;
+}
+
+/* دکمه‌ها و ورودی‌های فرم قابل استفاده باقی بمانند */
+body.birthday-party-active #birthdayCakeSection button,
+body.birthday-party-active #birthdayCakeSection textarea,
+body.birthday-party-active #birthdayCakeSection input {
+    pointer-events: auto;
+}
+
+/* ظاهر صورتی دکمه ذخیره آرزوها */
+body.birthday-party-active #birthdayCakeSection .cake-button {
+    background: linear-gradient(110deg, #ff83b9, #e8a4f5);
+    color: #5c1940;
+    box-shadow: 0 7px 22px rgba(194, 49, 117, 0.16);
+}
+
+/* هماهنگی پس‌زمینه در موبایل */
+@media (max-width: 520px) {
+    body.birthday-party-active #birthdayCakeSection {
+        border-radius: 24px;
+    }
+}
+/* ==========================================
+   MYTANNAZ - FIX HEARTS AFTER BLOWING CANDLES
+========================================== */
+
+/* پس‌زمینه جشن */
+body.birthday-party-active {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(255, 105, 180, 0.28),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 0% 70%,
+            rgba(170, 70, 160, 0.22),
+            transparent 50%
+        ),
+        #090716;
+
+    background-attachment: fixed;
+}
+
+/* کانتینر قلب‌ها باید مستقل از محتوای صفحه باشد */
+#celebrationHearts {
+    position: fixed !important;
+    inset: 0 !important;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    pointer-events: none !important;
+
+    z-index: 10000 !important;
+
+    visibility: visible !important;
+}
+
+/* نمایش قلب‌ها */
+#celebrationHearts .celebration-heart {
+    position: absolute !important;
+
+    display: block !important;
+
+    left: var(--heart-x, 50%);
+    top: var(--heart-y, 50%);
+
+    font-size: var(--heart-size, 25px);
+    line-height: 1;
+
+    opacity: 0;
+
+    visibility: visible !important;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%) scale(0);
+
+    animation:
+        heartExplosion
+        var(--heart-duration, 2.5s)
+        ease-out
+        forwards;
+
+    will-change: transform, opacity;
+}
+
+/* حرکت انفجاری قلب‌ها */
+@keyframes heartExplosion {
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0)
+            rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--heart-dx, 0px)),
+                calc(-50% + var(--heart-dy, -200px))
+            )
+            scale(0.7)
+            rotate(var(--heart-rotation, 0deg));
+    }
+}
+
+/* کارت بزرگ جشن هنگام فوت شمع‌ها مخفی بماند */
+#birthdayCelebration:not(.active) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* بخش کیک و آرزوها روی صفحه قابل استفاده بماند */
+#birthdayCakeSection {
+    position: relative;
+    z-index: 1;
+}
+/* ==========================================
+   MYTANNAZ - FIX BACKGROUND HEART ANIMATION
+   ========================================== */
+
+/* هنگام خاموش شدن شمع‌ها، لایه جشن برای قلب‌ها
+   قابل مشاهده می‌ماند اما کارت جشن نمایش داده نمی‌شود */
+#birthdayCelebration.background-only {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    background: transparent !important;
+    animation: none !important;
+}
+
+/* کارت و تزئینات بزرگ جشن مخفی بمانند */
+#birthdayCelebration.background-only .celebration-content,
+#birthdayCelebration.background-only .celebration-glow,
+#birthdayCelebration.background-only .mute-button {
+    display: none !important;
+}
+
+/* کانتینر قلب‌ها در کل صفحه قابل مشاهده باشد */
+#birthdayCelebration.background-only #celebrationHearts {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    z-index: 10000 !important;
+}
+
+/* انیمیشن قلب‌ها */
+#birthdayCelebration.background-only .celebration-heart {
+    position: absolute !important;
+    display: block !important;
+    left: var(--heart-x, 50%);
+    top: var(--heart-y, 50%);
+    font-size: var(--heart-size, 25px);
+    line-height: 1;
+    visibility: visible !important;
+    pointer-events: none !important;
+    will-change: transform, opacity;
+    animation: heartExplosion var(--heart-duration, 2.5s) ease-out forwards !important;
+}
+
+/* محتوای اصلی و فرم آرزوها قابل استفاده بمانند */
+body.birthday-party-active #birthdayCakeSection {
+    position: relative;
+    z-index: 5;
+}
+
+body.birthday-party-active #birthdayCakeSection button,
+body.birthday-party-active #birthdayCakeSection textarea,
+body.birthday-party-active #birthdayCakeSection input {
+    pointer-events: auto;
+}
+/* ==========================================
+   MYTANNAZ - CELEBRATION INSIDE COUNTDOWN
+   نمایش جشن فقط در محل تایمر
+========================================== */
+
+/* بخش تایمر پس از شروع جشن */
+#countdownSection.is-birthday-celebration {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 420px;
+    height: auto;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+/* محتوای جشن که به بخش تایمر منتقل شده است */
+#countdownSection > #celebrationContent {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    max-width: 900px;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 auto !important;
+    padding: 30px 20px !important;
+    box-sizing: border-box;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none;
+    z-index: 2;
+}
+
+/* کارت جشن دیگر نباید به‌صورت تمام‌صفحه نمایش داده شود */
+#birthdayCelebration.background-only {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    animation: none !important;
+    z-index: 10000 !important;
+}
+
+/* پنهان کردن محتوای داخل میزبان افکت‌ها */
+#birthdayCelebration.background-only > #celebrationContent,
+#birthdayCelebration.background-only .celebration-glow,
+#birthdayCelebration.background-only #muteButton {
+    display: none !important;
+}
+
+/* افکت‌های پس‌زمینه نباید جلوی کلیک روی صفحه را بگیرند */
+#birthdayCelebration.background-only #confettiContainer,
+#birthdayCelebration.background-only #celebrationHearts,
+#birthdayCelebration.background-only #balloonsContainer {
+    pointer-events: none !important;
+}
+
+/* کارت جشن در محل تایمر قابل استفاده بماند */
+#countdownSection > #celebrationContent button {
+    position: relative;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+/* فرم آرزوها و کیک همچنان قابل استفاده باشند */
+#birthdayCakeSection {
+    position: relative;
+    z-index: 5;
+}
+
+/* سازگاری با صفحه‌های موبایل */
+@media (max-width: 600px) {
+    #countdownSection.is-birthday-celebration {
+        min-height: 350px;
+    }
+
+    #countdownSection > #celebrationContent {
+        padding: 24px 12px !important;
+    }
+}

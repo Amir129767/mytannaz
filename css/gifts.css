@@ -1,0 +1,980 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --pink: #f7a4cb;
+    --deep-pink: #dc6fa8;
+    --purple: #b9a0ed;
+    --cream: #fff1d9;
+    --text: #713d5e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 15% 15%, #ffe2f0 0, transparent 40%),
+        radial-gradient(ellipse at 85% 30%, #e9ddff 0, transparent 38%),
+        linear-gradient(145deg, #fff9f4, #ffedf6 48%, #f6efff);
+}
+
+button,
+a {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gifts-page {
+    position: relative;
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 65px 24px 35px;
+    text-align: center;
+}
+
+.page-header {
+    margin-bottom: 42px;
+    animation: fade-in 1s ease both;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: #c66b9c;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    direction: ltr;
+}
+
+.page-header h1 {
+    margin: 13px 0 10px;
+    font-size: clamp(35px, 6vw, 58px);
+    font-weight: 800;
+    color: #b44d85;
+    text-shadow: 0 5px 22px #f1b5d366;
+}
+
+.heart {
+    display: inline-block;
+    color: #ed75aa;
+    animation: heartbeat 1.5s infinite;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: clamp(15px, 2.5vw, 19px);
+    line-height: 2;
+    color: #895d7c;
+}
+
+.instruction {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 10px 20px;
+    border: 1px solid #f3c3df;
+    border-radius: 30px;
+    background: #ffffff91;
+    font-size: 13px;
+    color: #a45b88;
+}
+
+/* چیدمان شش کادو */
+
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    margin: 0 auto;
+}
+
+.gift-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 275px;
+    padding: 23px 12px;
+    border: 1px solid #ffffffc9;
+    border-radius: 28px;
+    background: #ffffff65;
+    box-shadow: 0 10px 35px #ba78a51a;
+    color: var(--text);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+    animation: card-appear 0.7s ease both;
+}
+
+.gift-card:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.gift-card:nth-child(3) {
+    animation-delay: 0.16s;
+}
+
+.gift-card:nth-child(4) {
+    animation-delay: 0.24s;
+}
+
+.gift-card:nth-child(5) {
+    animation-delay: 0.32s;
+}
+
+.gift-card:nth-child(6) {
+    animation-delay: 0.4s;
+}
+
+.gift-card:hover {
+    transform: translateY(-8px);
+    background: #ffffffc2;
+    box-shadow: 0 20px 45px #d88bbd35;
+}
+
+.gift-card:focus-visible,
+.close-modal:focus-visible,
+.back-to-gifts:focus-visible,
+#voiceButton:focus-visible {
+    outline: 3px solid #ba6bb0;
+    outline-offset: 5px;
+}
+
+.gift-number {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    color: #c28baa;
+    font-size: 12px;
+    font-weight: 700;
+    direction: ltr;
+}
+
+/* طراحی جعبه با CSS؛ بدون نیاز به عکس */
+
+.gift-box {
+    --box-color: #f3a2c8;
+    --box-dark: #d978a8;
+    --ribbon-color: #fff0fa;
+
+    position: relative;
+    display: block;
+    width: 145px;
+    height: 145px;
+    margin: 18px 0 14px;
+    animation: gift-float 3s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.box-pink {
+    --box-color: #f5a3c8;
+    --box-dark: #d96c9e;
+    --ribbon-color: #fff0f7;
+}
+
+.box-lilac {
+    --box-color: #c7b0f1;
+    --box-dark: #9c7bd6;
+    --ribbon-color: #fff0fa;
+}
+
+.box-cream {
+    --box-color: #f6d9a2;
+    --box-dark: #d8b16b;
+    --ribbon-color: #fff7e8;
+}
+
+.box-rose {
+    --box-color: #e98cae;
+    --box-dark: #bd527d;
+    --ribbon-color: #ffe9f1;
+}
+
+.box-peach {
+    --box-color: #ffc0aa;
+    --box-dark: #df8b75;
+    --ribbon-color: #fff0e7;
+}
+
+.box-red {
+    --box-color: #ef8b9f;
+    --box-dark: #c95372;
+    --ribbon-color: #ffe9ed;
+}
+
+.box-body {
+    position: absolute;
+    left: 12px;
+    bottom: 8px;
+    width: 121px;
+    height: 88px;
+    border-radius: 5px 5px 13px 13px;
+    background: linear-gradient(
+        100deg,
+        var(--box-dark),
+        var(--box-color) 42%,
+        var(--box-dark)
+    );
+    box-shadow: 0 13px 17px #70465a25;
+}
+
+.box-lid {
+    position: absolute;
+    z-index: 3;
+    left: 4px;
+    top: 36px;
+    width: 137px;
+    height: 31px;
+    border-radius: 7px;
+    background: linear-gradient(
+        100deg,
+        var(--box-dark),
+        var(--box-color) 45%,
+        var(--box-dark)
+    );
+    box-shadow: 0 5px 9px #70465a26;
+    transform-origin: 15% 90%;
+    transition: transform 0.65s cubic-bezier(.2, .8, .2, 1);
+}
+
+.box-ribbon {
+    position: absolute;
+    z-index: 2;
+    left: 61px;
+    bottom: 8px;
+    width: 24px;
+    height: 105px;
+    background: var(--ribbon-color);
+    opacity: 0.92;
+    border-radius: 3px;
+}
+
+.box-bow {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 13px;
+    width: 58px;
+    height: 32px;
+    transform: translateX(-50%);
+}
+
+.box-bow::before,
+.box-bow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 29px;
+    height: 25px;
+    border: 6px solid var(--ribbon-color);
+    border-radius: 60% 60% 30% 60%;
+}
+
+.box-bow::before {
+    left: 0;
+    transform: rotate(27deg);
+}
+
+.box-bow::after {
+    right: 0;
+    transform: rotate(-27deg);
+}
+
+.box-heart {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 77px;
+    color: var(--ribbon-color);
+    font-size: 24px;
+    transform: translateX(-50%);
+    text-shadow: 0 2px 5px #75435d35;
+}
+
+.gift-caption {
+    font-size: 15px;
+    font-weight: 700;
+    color: #8f4e76;
+}
+
+.gift-hint {
+    margin-top: 7px;
+    font-size: 12px;
+    color: #bc77a0;
+}
+
+/* انیمیشن باز شدن جعبه */
+
+.gift-card.opening .box-lid {
+    transform: translate(-13px, -47px) rotate(-24deg);
+}
+
+.gift-card.opening .box-bow {
+    animation: bow-fly 0.65s ease forwards;
+}
+
+.gift-card.opening .box-heart {
+    animation: heart-pop 0.7s ease;
+}
+
+/* پنجره نمایش عکس کادو */
+
+.gift-modal {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    padding: 22px;
+    background: #321b33b8;
+    backdrop-filter: blur(12px);
+    animation: fade-in 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    width: min(490px, 100%);
+    margin: auto;
+    padding: 30px 24px;
+    border: 1px solid #ffffffc9;
+    border-radius: 30px;
+    background: linear-gradient(150deg, #fffaf7, #ffeaf5);
+    box-shadow: 0 25px 90px #16091d55;
+    animation: modal-appear 0.5s cubic-bezier(.2, .8, .2, 1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #f7d6e8;
+    color: #994e7d;
+    font-size: 29px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close-modal:hover {
+    transform: rotate(90deg);
+}
+
+.opened-gift {
+    position: relative;
+    width: 112px;
+    height: 95px;
+    margin: 15px auto 23px;
+}
+
+.opened-box {
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    width: 88px;
+    height: 55px;
+    border-radius: 5px 5px 12px 12px;
+    background: linear-gradient(100deg, #d96e9e, #f6a7ca, #d96e9e);
+}
+
+.opened-lid {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 10px;
+    width: 108px;
+    height: 24px;
+    border-radius: 5px;
+    background: linear-gradient(100deg, #d96e9e, #f6a7ca, #d96e9e);
+    transform: rotate(-15deg) translate(-8px, -10px);
+    animation: lid-open 0.8s ease both;
+}
+
+.opened-ribbon {
+    position: absolute;
+    z-index: 3;
+    left: 47px;
+    bottom: 0;
+    width: 18px;
+    height: 75px;
+    background: #fff0f7;
+}
+
+.opened-heart {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 45px;
+    color: #fff3fa;
+    font-size: 24px;
+    transform: translateX(-50%);
+    animation: heartbeat 1.2s infinite;
+}
+
+.modal-eyebrow {
+    color: #be70a0;
+    font-size: 11px;
+    letter-spacing: 2px;
+    direction: ltr;
+}
+
+.modal-content h2 {
+    margin: 8px 0 20px;
+    color: #ae5687;
+    font-size: 26px;
+}
+
+.gift-photo-frame {
+    display: grid;
+    place-items: center;
+    min-height: 180px;
+    padding: 10px;
+    border: 1px solid #f3c5df;
+    border-radius: 21px;
+    background:
+        radial-gradient(circle at 50% 50%, #fff 0, #fff5fa 100%);
+    overflow: hidden;
+}
+
+.gift-photo-frame img {
+    display: block;
+    width: 100%;
+    max-height: 370px;
+    object-fit: contain;
+    border-radius: 13px;
+    animation: photo-appear 0.7s ease both;
+}
+
+.gift-photo-frame img.image-error {
+    display: none;
+}
+
+.gift-message {
+    margin: 20px 0;
+    color: #80536f;
+    font-size: 14px;
+    line-height: 2.2;
+}
+
+.back-to-gifts,
+#voiceButton {
+    padding: 12px 23px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #f3a1c9, #c4a1ef);
+    color: #522b4b;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 7px 20px #d38db52b;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.back-to-gifts:hover,
+#voiceButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px #d38db545;
+}
+
+/* متن عاشقانه */
+
+.love-note {
+    position: relative;
+    max-width: 730px;
+    margin: 85px auto 35px;
+    padding: 35px 30px;
+    border: 1px solid #ffffffcf;
+    border-radius: 30px;
+    background: #ffffff69;
+    box-shadow: 0 15px 45px #bb7da31c;
+}
+
+.note-heart {
+    display: inline-block;
+    color: #e77baa;
+    font-size: 30px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.love-note h2 {
+    margin: 12px 0;
+    font-size: clamp(20px, 4vw, 28px);
+    color: #a34e7c;
+}
+
+.love-note p {
+    margin: 0;
+    color: #82566f;
+    font-size: 15px;
+    line-height: 2.5;
+}
+
+.note-signature {
+    display: block;
+    margin-top: 20px;
+    color: #b05d8d;
+    font-weight: 700;
+}
+
+/* پخش صدا */
+
+.voice-player {
+    width: min(390px, 100%);
+    margin: 45px auto 35px;
+    padding: 24px 18px;
+    border: 1px solid #ffffffc9;
+    border-radius: 25px;
+    background: #ffffff75;
+}
+
+#voiceStatus {
+    margin: 13px 0 0;
+    color: #9a6584;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.back-home {
+    display: inline-block;
+    padding: 12px 22px;
+    border: 1px solid #edb9d7;
+    border-radius: 30px;
+    color: #a35583;
+    background: #ffffff80;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.back-home:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+footer {
+    margin-top: 35px;
+    color: #ae7b9a;
+    font-size: 12px;
+}
+
+/* قلب‌های شناور */
+
+.background-hearts {
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -40px;
+    color: #e889ba;
+    opacity: 0;
+    animation: float-up linear forwards;
+}
+
+@keyframes float-up {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg) scale(.7);
+    }
+
+    12% {
+        opacity: .4;
+    }
+
+    85% {
+        opacity: .3;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-110vh) rotate(50deg) scale(1.2);
+    }
+}
+
+@keyframes gift-float {
+    0%, 100% {
+        transform: translateY(0) rotate(-1deg);
+    }
+
+    50% {
+        transform: translateY(-9px) rotate(1deg);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.2);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.13);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes photo-appear {
+    from {
+        opacity: 0;
+        transform: scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bow-fly {
+    to {
+        transform: translate(-50%, -35px) rotate(-20deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heart-pop {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-18px) scale(1.6);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes lid-open {
+    from {
+        transform: rotate(0) translate(0, 0);
+    }
+
+    to {
+        transform: rotate(-15deg) translate(-8px, -10px);
+    }
+}
+
+/* نمایش در موبایل */
+
+@media (max-width: 700px) {
+    .gifts-page {
+        padding: 45px 15px 28px;
+    }
+
+    .gifts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .gift-card {
+        min-height: 235px;
+        padding: 18px 8px;
+        border-radius: 22px;
+    }
+
+    .gift-box {
+        transform: scale(.86);
+        margin: 4px 0;
+    }
+
+    .gift-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .gift-caption {
+        font-size: 12px;
+    }
+
+    .love-note {
+        margin-top: 55px;
+        padding: 28px 18px;
+    }
+
+    .love-note p {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        padding: 25px 17px;
+    }
+}
+
+@media (max-width: 360px) {
+    .gifts-grid {
+        gap: 9px;
+    }
+
+    .gift-card {
+        min-height: 215px;
+    }
+
+    .gift-box {
+        transform: scale(.76);
+        margin: -5px 0;
+    }
+
+    .gift-caption {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* =========================================
+   انیمیشن هیجان‌انگیز تکان خوردن جعبه کادو
+========================================= */
+
+.gift-card.shaking .gift-box {
+    animation: gift-excited-shake 0.85s ease-in-out both;
+}
+
+.gift-card.shaking .box-lid {
+    animation: lid-excited-shake 0.85s ease-in-out both;
+}
+
+.gift-card.shaking .box-bow {
+    animation: bow-excited-shake 0.85s ease-in-out both;
+}
+
+@keyframes gift-excited-shake {
+    0% {
+        transform: translateX(0) rotate(0) scale(1);
+    }
+
+    12% {
+        transform: translateX(-7px) rotate(-6deg) scale(1.04);
+    }
+
+    24% {
+        transform: translateX(7px) rotate(6deg) scale(1.05);
+    }
+
+    36% {
+        transform: translateX(-9px) rotate(-7deg) scale(1.06);
+    }
+
+    48% {
+        transform: translateX(9px) rotate(7deg) scale(1.06);
+    }
+
+    60% {
+        transform: translateX(-6px) rotate(-4deg) scale(1.07);
+    }
+
+    72% {
+        transform: translateX(6px) rotate(4deg) scale(1.07);
+    }
+
+    85% {
+        transform: translateX(-3px) rotate(-2deg) scale(1.04);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0) scale(1);
+    }
+}
+
+@keyframes lid-excited-shake {
+    0%, 100% {
+        transform: rotate(0) translateY(0);
+    }
+
+    20%, 60% {
+        transform: rotate(-5deg) translateY(-2px);
+    }
+
+    40%, 80% {
+        transform: rotate(5deg) translateY(2px);
+    }
+}
+
+@keyframes bow-excited-shake {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0);
+    }
+
+    25%, 75% {
+        transform: translateX(-50%) rotate(-12deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(12deg);
+    }
+}
+
+/* =========================================
+   پرش قلب‌های رنگی اطراف عکس کادو
+========================================= */
+
+.gift-photo-frame {
+    position: relative;
+    overflow: visible !important;
+    isolation: isolate;
+}
+
+.gift-photo-frame img {
+    position: relative;
+    z-index: 2;
+}
+
+.color-heart {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    will-change: transform, opacity;
+    animation: colorful-heart-burst var(--heart-duration, 1.5s)
+        cubic-bezier(.15, .7, .25, 1) forwards;
+}
+
+@keyframes colorful-heart-burst {
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(.1)
+            rotate(0deg);
+    }
+
+    12% {
+        opacity: 1;
+    }
+
+    55% {
+        opacity: 1;
+        transform:
+            translate(
+                calc(-50% + var(--heart-x) * .72),
+                calc(-50% + var(--heart-y) * .72)
+            )
+            scale(1.25)
+            rotate(var(--heart-rotation));
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(
+                calc(-50% + var(--heart-x)),
+                calc(-50% + var(--heart-y))
+            )
+            scale(.55)
+            rotate(var(--heart-rotation));
+    }
+}
+
+/* درخشش لحظه ظاهر شدن عکس */
+
+.gift-photo-frame.photo-reveal {
+    animation: photo-frame-reveal .65s ease-out both;
+}
+
+@keyframes photo-frame-reveal {
+    0% {
+        transform: scale(.82);
+        box-shadow: 0 0 0 rgba(245, 115, 181, 0);
+    }
+
+    55% {
+        transform: scale(1.045);
+        box-shadow:
+            0 0 30px rgba(245, 115, 181, .4),
+            0 0 55px rgba(183, 132, 244, .22);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(245, 115, 181, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gift-card.shaking .gift-box,
+    .gift-card.shaking .box-lid,
+    .gift-card.shaking .box-bow {
+        animation: none !important;
+    }
+
+    .color-heart {
+        animation-duration: .01ms !important;
+    }
+}

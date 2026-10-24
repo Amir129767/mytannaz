@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="نامه‌ای از قلب من برای طناز عزیزم"
+    >
+
+    <meta name="theme-color" content="#190d28">
+
+    <title>نامه من برای تو ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/letter.css">
+
+    <script src="../js/letter.js" defer></script>
+</head>
+
+<body class="letter-page">
+
+    <!-- پس‌زمینه رؤیایی -->
+    <div class="letter-universe" aria-hidden="true">
+
+        <div class="universe-glow glow-one"></div>
+        <div class="universe-glow glow-two"></div>
+        <div class="universe-glow glow-three"></div>
+
+        <div id="letterStars" class="letter-stars"></div>
+
+        <div
+            id="letterFloatingHearts"
+            class="letter-floating-hearts"
+        ></div>
+
+        <div id="letterParticles" class="letter-particles"></div>
+
+    </div>
+
+
+    <!-- صدای امیرمحمد -->
+    <!-- صدای طناز ❤️ -->
+    <!-- صدای طناز ❤️ -->
+    <audio id="tannazVoiceAudio" preload="auto" loop>
+        <source
+            src="../assets/music/tannaz-voice.mp3"
+            type="audio/mpeg"
+        >
+        مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+    </audio>
+
+    <!-- کنترل پخش صدا -->
+    <div id="voicePlayer" class="voice-player">
+        <button id="playTannazVoice" type="button">
+            🎵 پخش صدای طناز
+        </button>
+
+        <p id="voiceStatus" role="status">
+            در حال آماده‌سازی صدای طناز... ❤️
+        </p>
+    </div>
+
+
+    <main class="letter-main">
+
+        <!-- عنوان -->
+        <header class="letter-header">
+
+            <div class="letter-eyebrow">
+                <span class="eyebrow-line"></span>
+                <span>از قلب من برای تو</span>
+                <span class="eyebrow-line"></span>
+            </div>
+
+            <h1 class="letter-title">
+                نامه من
+                <span class="title-heart">♥</span>
+            </h1>
+
+            <p class="letter-subtitle">
+                یه حرفایی هست که فقط باید از ته قلب گفته بشن
+            </p>
+
+        </header>
+
+
+        <!-- صحنه پاکت -->
+        <section
+            class="envelope-scene"
+            id="envelopeScene"
+            aria-label="نامه عاشقانه"
+        >
+
+            <div class="envelope-aura"></div>
+
+            <div class="envelope-orbit orbit-one" aria-hidden="true">
+                <span class="orbit-heart">♥</span>
+            </div>
+
+            <div class="envelope-orbit orbit-two" aria-hidden="true">
+                <span class="orbit-heart">♥</span>
+            </div>
+
+            <div
+                id="envelopeHeartEffects"
+                class="envelope-heart-effects"
+                aria-hidden="true"
+            ></div>
+
+
+            <!-- پاکت -->
+            <button
+                type="button"
+                class="envelope-button"
+                id="envelopeButton"
+                aria-label="باز کردن نامه عاشقانه"
+                aria-expanded="false"
+                aria-controls="loveLetter"
+            >
+
+                <div class="envelope-3d" id="envelope3D">
+
+                    <div class="envelope-shadow"></div>
+
+                    <div class="envelope-body">
+
+                        <div class="envelope-inner"></div>
+
+                        <!-- پیش‌نمایش نامه داخل پاکت -->
+                        <div class="letter-paper" id="letterPaper">
+
+                            <div class="paper-decoration">
+                                <span>♥</span>
+                                <span>♡</span>
+                                <span>♥</span>
+                            </div>
+
+                            <div class="paper-heading">
+                                یه نامه برای تو
+                            </div>
+
+                            <div class="paper-divider">
+                                <span>✦</span>
+                                <span>♥</span>
+                                <span>✦</span>
+                            </div>
+
+                            <div class="letter-content-preview">
+
+                                <span class="preview-heart">♥</span>
+
+                                <p>
+                                    برای قشنگ‌ترین اتفاق زندگی من...
+                                </p>
+
+                                <span class="preview-caption">
+                                    یه دنیا حرف برای گفتن دارم
+                                </span>
+
+                            </div>
+
+                            <div class="paper-bottom-decoration">
+                                با تمام قلبم ♥
+                            </div>
+
+                        </div>
+
+                        <div class="envelope-left"></div>
+                        <div class="envelope-right"></div>
+                        <div class="envelope-front"></div>
+
+                        <div
+                            class="envelope-flap"
+                            id="envelopeFlap"
+                        ></div>
+
+                        <div
+                            class="envelope-seal"
+                            id="envelopeSeal"
+                        >
+
+                            <div class="seal-glow"></div>
+
+                            <div class="seal-heart">♥</div>
+
+                            <div class="seal-sparkle sparkle-one">
+                                ✦
+                            </div>
+
+                            <div class="seal-sparkle sparkle-two">
+                                ✧
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </button>
+
+
+            <!-- راهنمای پاکت -->
+            <div
+                class="envelope-instruction"
+                id="envelopeInstruction"
+            >
+
+                <span class="instruction-sparkle">✧</span>
+
+                <span>
+                    برای باز کردن نامه روی قلب کلیک کن
+                </span>
+
+                <span class="instruction-sparkle">✧</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- نامه اصلی -->
+        <section
+            class="love-letter-reveal"
+            id="loveLetter"
+            aria-label="متن نامه عاشقانه"
+            aria-hidden="true"
+            hidden
+        >
+
+            <!-- قلب‌های انفجاری در دو طرف نامه -->
+            <div
+                class="letter-side-hearts letter-side-hearts-left"
+                id="letterSideHeartsLeft"
+                aria-hidden="true"
+            ></div>
+
+            <div
+                class="letter-side-hearts letter-side-hearts-right"
+                id="letterSideHeartsRight"
+                aria-hidden="true"
+            ></div>
+
+
+            <!-- قاب نامه -->
+            <article class="love-letter-card">
+
+                <div class="love-letter-card-glow"></div>
+
+                <div class="love-letter-inner">
+
+                    <div class="love-letter-top-decoration">
+                        <span>♡</span>
+                        <span>✦</span>
+                        <span>♥</span>
+                        <span>✦</span>
+                        <span>♡</span>
+                    </div>
+
+                    <p class="love-letter-eyebrow">
+                        فقط برای تو
+                    </p>
+
+                    <h2 class="love-letter-title">
+                        عشقممم ❤️
+                    </h2>
+
+                    <div class="love-letter-divider">
+                        <span></span>
+                        <span>♥</span>
+                        <span></span>
+                    </div>
+
+
+                    <!-- متن اصلی نامه را بعداً اینجا قرار می‌دهیم -->
+                    <div
+                        class="love-letter-text"
+                        id="loveLetterText"
+                        tabindex="0"
+                    >
+
+                        <p class="letter-placeholder">
+                            اینجا جای حرف‌هایی است که از ته قلبم
+                            برای تو نوشته می‌شوند...
+                        </p>
+
+                        <p class="letter-placeholder-caption">
+                            یه عالمه حرف قشنگ هنوز مونده عشقممم ❤️
+                        </p>
+
+                    </div>
+
+
+                    <div class="love-letter-signature">
+
+                        <span class="signature-line"></span>
+
+                        <p>
+                            با تمام قلبم برای تو
+                        </p>
+
+                        <span class="signature-heart">♥</span>
+
+                    </div>
+
+
+                    <!-- جشن حیوانات -->
+                    <section
+                        class="dancing-animals"
+                        id="dancingAnimals"
+                        aria-label="جشن حیوانات بامزه"
+                    >
+
+                        <p class="animals-title">
+                            یه جشن کوچولو فقط برای تووو! 💗
+                        </p>
+
+                        <div class="animals-dance-floor">
+
+                            <span
+                                class="dancing-animal animal-unicorn"
+                                role="img"
+                                aria-label="اسب تک‌شاخ رقصنده"
+                            >🦄</span>
+
+                            <span
+                                class="dancing-animal animal-cat"
+                                role="img"
+                                aria-label="گربه رقصنده"
+                            >🐱</span>
+
+                            <span
+                                class="dancing-animal animal-rabbit"
+                                role="img"
+                                aria-label="خرگوش رقصنده"
+                            >🐰</span>
+
+                            <span
+                                class="dancing-animal animal-bear"
+                                role="img"
+                                aria-label="خرس رقصنده"
+                            >🐻</span>
+
+                            <span
+                                class="dancing-animal animal-fox"
+                                role="img"
+                                aria-label="روباه رقصنده"
+                            >🦊</span>
+
+                        </div>
+
+                        <p class="animals-caption">
+                            چون لبخند تو قشنگ‌ترین بهونه دنیاست 🥹❤️
+                        </p>
+
+                    </section>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- پیام باز شدن نامه -->
+        <div
+            class="envelope-open-message"
+            id="envelopeOpenMessage"
+            aria-live="polite"
+            hidden
+        >
+            این نامه فقط برای توئه عشقممم ❤️
+        </div>
+
+
+        <!-- تزئینات پایین -->
+        <div
+            class="letter-bottom-decoration"
+            aria-hidden="true"
+        >
+
+            <span>♡</span>
+            <span class="bottom-decoration-line"></span>
+            <span>♥</span>
+            <span class="bottom-decoration-line"></span>
+            <span>♡</span>
+
+        </div>
+
+
+        <!-- بازگشت -->
+        <nav
+            class="letter-navigation"
+            aria-label="ناوبری صفحه"
+        >
+
+            <a
+                href="tree.html"
+                class="back-to-tree-button"
+                id="backToTreeButton"
+            >
+
+                <span class="back-arrow">←</span>
+
+                <span>برگشت به درخت قلب‌ها</span>
+
+                <span class="back-button-heart">♥</span>
+
+            </a>
+
+        </nav>
+
+    </main>
+
+
+    <footer class="letter-footer">
+
+        <p>
+            ساخته‌شده با تمام قلبم برای تو
+            <span>♥</span>
+        </p>
+
+    </footer>
+
+
+    <!-- تلاش برای پخش خودکار صدا -->
+    <script>
+    (() => {
+        const audio = document.getElementById("tannazVoiceAudio");
+        const playButton = document.getElementById("playTannazVoice");
+        const status = document.getElementById("voiceStatus");
+
+        if (!audio || !playButton || !status) {
+            console.error("عناصر پخش صدای طناز پیدا نشدند.");
+            return;
+        }
+
+        audio.volume = 0.8;
+
+        function updateStatus(message) {
+            status.textContent = message;
+        }
+
+        async function playTannazVoice() {
+            try {
+                if (!audio.paused) {
+                    updateStatus("صدای طناز در حال پخشه ❤️");
+                    return;
+                }
+
+                updateStatus("در حال پخش صدای طناز... 🎵");
+
+                await audio.play();
+
+                updateStatus("صدای طناز در حال پخشه ❤️");
+                playButton.textContent = "⏸ توقف صدا";
+            } catch (error) {
+                console.error("خطای پخش صدا:", error);
+
+                if (error.name === "NotAllowedError") {
+                    updateStatus(
+                        "مرورگر اجازه پخش خودکار نداد. روی دکمه پخش بزن ❤️"
+                    );
+                } else if (error.name === "NotSupportedError") {
+                    updateStatus(
+                        "فرمت فایل صوتی پشتیبانی نمی‌شود. فرمت فایل را بررسی کن."
+                    );
+                } else {
+                    updateStatus(
+                        "پخش صدا ناموفق بود. مسیر و نام فایل را بررسی کن."
+                    );
+                }
+            }
+        }
+
+        // تلاش برای پخش خودکار هنگام ورود
+        audio.play()
+            .then(() => {
+                updateStatus("صدای طناز در حال پخشه ❤️");
+                playButton.textContent = "⏸ توقف صدا";
+            })
+            .catch((error) => {
+                console.warn("پخش خودکار انجام نشد:", error);
+
+                if (error.name === "NotAllowedError") {
+                    updateStatus(
+                        "برای شنیدن صدای طناز روی دکمه پخش بزن ❤️"
+                    );
+                } else {
+                    updateStatus(
+                        "صدا پخش نشد. نام فایل، مسیر و فرمت آن را بررسی کن."
+                    );
+                }
+            });
+
+        // دکمه پخش و توقف
+        playButton.addEventListener("click", async () => {
+            if (audio.paused) {
+                await playTannazVoice();
+            } else {
+                audio.pause();
+                playButton.textContent = "🎵 پخش صدای طناز";
+                updateStatus("پخش صدا متوقف شد.");
+            }
+        });
+
+        // تشخیص خطاهای بارگذاری فایل
+        audio.addEventListener("error", () => {
+            console.error("جزئیات خطای فایل صوتی:", audio.error);
+
+            updateStatus(
+                "فایل صدا بارگذاری نشد. مسیر و فرمت فایل را بررسی کن."
+            );
+        });
+
+        audio.addEventListener("ended", () => {
+            playButton.textContent = "🎵 پخش صدای طناز";
+        });
+    })();
+    </script>
+
+</body>
+
+</html>

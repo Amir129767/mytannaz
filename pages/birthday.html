@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دنیای تولد تو ❤️</title>
+
+    <link rel="stylesheet" href="../css/birthday.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- آسمان شب -->
+    <div class="night-sky" id="nightSky">
+        <div class="moon"></div>
+        <div class="stars" id="stars"></div>
+        <div class="floating-lights" id="floatingLights"></div>
+    </div>
+
+    <main class="birthday-page">
+
+        <!-- شمارش معکوس تولد -->
+        <section class="countdown-section" id="countdownSection">
+
+            <div class="countdown-decoration countdown-decoration-left">💗</div>
+            <div class="countdown-decoration countdown-decoration-right">🎀</div>
+
+            <div class="countdown-small-title">
+                THE BIG SURPRISE IS COMING
+            </div>
+
+            <div class="countdown-icon">🎂</div>
+
+            <h2 class="countdown-title">
+                تا تولد عشقممم
+                <br>
+                چقدر مونده؟
+            </h2>
+
+            <p class="countdown-description">
+                یه سورپرایز قشنگ منتظرته
+                <br>
+                فقط کافیه کمی صبر کنی ❤️
+            </p>
+
+            <div class="countdown-timer" id="countdownTimer" aria-live="off">
+
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="countdownDays">۰۰۰</span>
+                    <span class="countdown-label">روز</span>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="countdownHours">۰۰</span>
+                    <span class="countdown-label">ساعت</span>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="countdownMinutes">۰۰</span>
+                    <span class="countdown-label">دقیقه</span>
+                </div>
+
+                <div class="countdown-separator">:</div>
+
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="countdownSeconds">۰۰</span>
+                    <span class="countdown-label">ثانیه</span>
+                </div>
+
+            </div>
+
+            <div class="countdown-date">
+                <span>❤️</span>
+                شنبه ۱۶ آبان ۱۴۰۵
+                <span>❤️</span>
+            </div>
+
+            <p class="countdown-footnote">
+                همه‌چیز برای یه روز خاص آماده می‌شه
+            </p>
+
+        </section>
+
+        <!-- عنوان اصلی صفحه -->
+        <header class="page-header">
+
+            <div class="small-label">A SPECIAL DAY FOR YOU</div>
+
+            <h1>
+                دنیای تولد
+                <span>عشقممم</span>
+            </h1>
+
+            <p class="header-description">
+                از بین تمام روزهای دنیا
+                <br>
+                یه روز هست که برای من قشنگ‌تر از همه‌ست
+            </p>
+
+            <div class="heart-divider">
+                <span></span>
+                ❤️
+                <span></span>
+            </div>
+
+        </header>
+
+        <!-- کارت تولد -->
+        <section class="birthday-card">
+
+            <div class="card-glow"></div>
+
+            <div class="birthday-icon">
+                🎂
+            </div>
+
+            <p class="birthday-intro">
+                روزی که دنیا تو رو به خودش هدیه گرفت
+            </p>
+
+            <h2 class="birthday-date">
+                ۱۶ آبان ۱۳۸۵
+            </h2>
+
+            <p class="birthday-message">
+                از بین تمام تاریخ‌هایی که توی تقویم نوشته شدن
+                <br>
+                این یکی برای من یه معنی دیگه داره
+            </p>
+
+            <div class="date-badges">
+
+                <div class="date-badge">
+                    <span class="badge-number">۱۶</span>
+                    <span class="badge-label">روز</span>
+                </div>
+
+                <div class="date-badge">
+                    <span class="badge-number">آبان</span>
+                    <span class="badge-label">ماه تولد</span>
+                </div>
+
+                <div class="date-badge">
+                    <span class="badge-number">۱۳۸۵</span>
+                    <span class="badge-label">سال تولد</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- تقویم -->
+        <section class="calendar-section">
+
+            <div class="section-heading">
+
+                <span class="section-symbol">♡</span>
+
+                <h2>تقویم قشنگ‌ترین روز دنیا</h2>
+
+                <p>
+                    یه قلب کوچولو برای روزی که تو به دنیا اومدی
+                </p>
+
+            </div>
+
+            <div class="calendar-card">
+
+                <div class="calendar-top">
+
+                    <div class="calendar-month-icon">
+                        🌸
+                    </div>
+
+                    <div class="calendar-month-info">
+                        <h3 id="calendarMonth">آبان</h3>
+                        <p id="calendarYear">۱۴۰۵</p>
+                    </div>
+
+                    <div class="calendar-heart">
+                        ❤️
+                    </div>
+
+                </div>
+
+                <div class="calendar-weekdays">
+                    <div>شنبه</div>
+                    <div>یکشنبه</div>
+                    <div>دوشنبه</div>
+                    <div>سه‌شنبه</div>
+                    <div>چهارشنبه</div>
+                    <div>پنجشنبه</div>
+                    <div>جمعه</div>
+                </div>
+
+                <div class="calendar-days" id="calendarDays"></div>
+
+                <div class="calendar-legend">
+                    <span class="legend-heart">♥</span>
+                    <span>روز تولد عشقممم</span>
+                </div>
+
+            </div>
+
+            <p class="calendar-note">
+                تقویم روی آبان ۱۴۰۵ تنظیم شده
+                <br>
+                روز ۱۶ آبان با قلب مشخص شده ❤️
+            </p>
+
+        </section>
+
+        <!-- پیام عاشقانه -->
+        <section class="love-note">
+
+            <div class="love-note-icon">🌙</div>
+
+            <h2>یه آرزوی کوچولو برای تو</h2>
+
+            <p>
+                کاش تمام روزهای زندگیت به قشنگی همون روزی باشن
+                که برای اولین بار چشمات دنیا رو دیدن
+                <br><br>
+                کاش هر سال که می‌گذره
+                لبخندت قشنگ‌تر بشه
+                دلت آروم‌تر باشه
+                و به تک‌تک آرزوهات برسی
+                <br><br>
+                و من هم بتونم کنار تو باشم
+                و هر سال این روز رو با یه لبخند بزرگ بهت تبریک بگم
+            </p>
+
+            <div class="love-signature">
+                با تمام قلبم برای تو ❤️
+            </div>
+
+        </section>
+
+        <!-- تزئینات پایانی -->
+        <div class="bottom-decoration">
+            <span>✦</span>
+            <span>♡</span>
+            <span>✦</span>
+        </div>
+
+        <button class="back-button" id="backButton" type="button">
+            <span>♡</span>
+            برگشت به باغ قلب‌هامون
+        </button>
+
+        <footer class="page-footer">
+            ساخته‌شده با عشق برای طناز ❤️
+        </footer>
+
+    </main>
+
+    <!-- ==========================================
+         جشن سورپرایز تولد
+         ========================================== -->
+
+    <section
+        class="birthday-celebration"
+        id="birthdayCelebration"
+        aria-hidden="true"
+        aria-label="جشن تولد طناز"
+    >
+
+        <!-- نور و درخشش پس‌زمینه -->
+        <div class="celebration-glow celebration-glow-one"></div>
+        <div class="celebration-glow celebration-glow-two"></div>
+        <div class="celebration-glow celebration-glow-three"></div>
+
+        <!-- کاغذرنگی‌ها -->
+        <div class="confetti-container" id="confettiContainer"></div>
+
+        <!-- قلب‌های انفجاری -->
+        <div class="celebration-hearts" id="celebrationHearts"></div>
+
+        <!-- بادکنک‌ها -->
+        <div class="balloons-container" id="balloonsContainer"></div>
+
+        <!-- محتوای اصلی جشن -->
+        <div class="celebration-content" id="celebrationContent">
+
+            <div class="party-top-label">
+                TODAY IS ALL ABOUT YOU
+            </div>
+
+            <div class="party-cake">🎂</div>
+
+            <h1 class="party-title">
+                تولدت مبارک
+                <span>عشقممم</span>
+            </h1>
+
+            <p class="party-subtitle">
+                قشنگ‌ترین روز دنیا بالاخره رسید ❤️
+            </p>
+
+            <div class="party-character-stage">
+
+                <div class="party-character character-bunny" aria-label="خرگوش کارتونی">
+                    <span class="character-accessory">🎀</span>
+                    <span class="character-body">🐰</span>
+                    <span class="character-action">💗</span>
+                </div>
+
+                <div class="party-character character-bear" aria-label="خرس عروسکی">
+                    <span class="character-accessory">🎉</span>
+                    <span class="character-body">🧸</span>
+                    <span class="character-action">💖</span>
+                </div>
+
+                <div class="party-character character-unicorn" aria-label="شخصیت فانتزی">
+                    <span class="character-accessory">✨</span>
+                    <span class="character-body">🦄</span>
+                    <span class="character-action">💝</span>
+                </div>
+
+                <div class="party-character character-cat" aria-label="گربه کارتونی">
+                    <span class="character-accessory">🎈</span>
+                    <span class="character-body">🐱</span>
+                    <span class="character-action">💕</span>
+                </div>
+
+                <div class="party-character character-fox" aria-label="روباه کارتونی">
+                    <span class="character-accessory">🥳</span>
+                    <span class="character-body">🦊</span>
+                    <span class="character-action">❤️</span>
+                </div>
+
+            </div>
+
+            <div class="party-wish-card">
+
+                <div class="party-wish-hearts">💗 💖 💗</div>
+
+                <h2>امروز روز توئه</h2>
+
+                <p>
+                    امروز قراره بخندی
+                    <br>
+                    خوشحال باشی
+                    <br>
+                    و بدونی که یه نفر از ته قلبش
+                    <br>
+                    قشنگ‌ترین اتفاق‌های دنیا رو برات می‌خواد
+                </p>
+
+                <div class="party-wish-footer">
+                    تولدت مبارک ماه زیبای من ❤️
+                </div>
+
+            </div>
+
+            <button
+                class="replay-celebration-button"
+                id="replayCelebrationButton"
+                type="button"
+            >
+                🎉 دوباره جشن بگیریم
+            </button>
+
+            <button
+                class="sound-button"
+                id="soundButton"
+                type="button"
+            >
+                🔊 فعال‌کردن آهنگ تولد
+            </button>
+
+        </div>
+
+        <!-- آهنگ تولد -->
+        <audio
+            id="birthdaySong"
+            preload="auto"
+            loop
+            playsinline
+        >
+            <source
+                src="../assets/music/happy-birthday.mp3"
+                type="audio/mpeg"
+            >
+        </audio>
+
+        <!-- دکمه بی‌صدا کردن آهنگ -->
+        <button
+            class="mute-button"
+            id="muteButton"
+            type="button"
+            aria-label="قطع یا وصل کردن صدای آهنگ"
+        >
+            🔊
+        </button>
+
+    </section>
+
+    <script src="../js/birthday.js"></script>
+<!-- بخش کیک تولد طناز -->
+<section id="birthdayCakeSection" class="birthday-cake-section">
+
+    <div class="cake-heading">
+        <span class="cake-sparkle">✨</span>
+        <h2>یه آرزو کن عشقممم ❤️</h2>
+        <p>
+            میکروفون رو فعال کن و با فوت کردنت شمع‌های کیکت رو خاموش کن
+        </p>
+    </div>
+
+    <div class="cake-stage">
+
+        <div class="cake-glow"></div>
+
+        <!-- شمع‌ها -->
+        <div id="birthdayCandles" class="birthday-candles">
+
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="candle-body"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="candle-body"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+                <div class="candle-body"></div>
+            </div>
+
+        </div>
+
+        <!-- کیک -->
+        <div class="birthday-cake">
+
+            <div class="cake-top">
+                <div class="cake-icing"></div>
+                <span class="cake-decoration decoration-one">♥</span>
+                <span class="cake-decoration decoration-two">♥</span>
+                <span class="cake-decoration decoration-three">♥</span>
+            </div>
+
+            <div class="cake-layer cake-layer-top"></div>
+            <div class="cake-layer cake-layer-bottom"></div>
+
+            <div class="cake-plate"></div>
+
+        </div>
+
+    </div>
+
+    <!-- کنترل میکروفون -->
+    <div class="cake-controls">
+
+        <button
+            type="button"
+            id="enableMicrophoneButton"
+            class="cake-button"
+        >
+            🎤 فعال کردن میکروفون
+        </button>
+
+        <p
+            id="microphoneStatus"
+            class="cake-status"
+            role="status"
+            aria-live="polite"
+        >
+            برای خاموش کردن شمع‌ها میکروفون رو فعال کن
+        </p>
+
+        <div
+            id="microphoneMeter"
+            class="microphone-meter"
+            aria-label="شدت صدای ورودی"
+        >
+            <div id="microphoneMeterFill"></div>
+        </div>
+
+    </div>
+
+    <!-- پیام پس از خاموش شدن شمع‌ها -->
+    <div id="candlesBlownMessage" class="candles-blown-message" hidden>
+
+        <h3>تولدت مبارک عشقممم 🥹❤️</h3>
+
+        <p>
+            امیدوارم تمام آرزوهای قشنگت یکی‌یکی به حقیقت تبدیل بشن
+        </p>
+
+    </div>
+
+    <!-- فرم ثبت سه آرزو -->
+    <div id="birthdayWishesSection" class="birthday-wishes-section" hidden>
+
+        <div class="wishes-heading">
+            <span>💌</span>
+
+            <h3>حالا سه تا آرزو کن</h3>
+
+            <p>
+                سه تا از قشنگ‌ترین آرزوهات رو اینجا بنویس
+            </p>
+        </div>
+
+        <form id="birthdayWishesForm">
+
+            <div class="wish-input-group">
+                <label for="wishOne">آرزوی اول</label>
+
+                <textarea
+                    id="wishOne"
+                    name="wishOne"
+                    maxlength="1000"
+                    minlength="2"
+                    placeholder="اولین آرزوی قشنگت..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="wish-input-group">
+                <label for="wishTwo">آرزوی دوم</label>
+
+                <textarea
+                    id="wishTwo"
+                    name="wishTwo"
+                    maxlength="1000"
+                    minlength="2"
+                    placeholder="دومین آرزوی قشنگت..."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="wish-input-group">
+                <label for="wishThree">آرزوی سوم</label>
+
+                <textarea
+                    id="wishThree"
+                    name="wishThree"
+                    maxlength="1000"
+                    minlength="2"
+                    placeholder="سومین آرزوی قشنگت..."
+                    required
+                ></textarea>
+            </div>
+
+            <button
+                type="submit"
+                id="saveBirthdayWishesButton"
+                class="cake-button save-wishes-button"
+            >
+                ❤️ ثبت سه آرزو
+            </button>
+
+            <p
+                id="birthdayWishesStatus"
+                class="cake-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+        </form>
+
+    </div>
+
+    <!-- فایل صدای تشویق -->
+    <audio
+        id="birthdayApplause"
+        src="../assets/music/applause.mp3"
+        preload="auto"
+    ></audio>
+
+</section>
+</body>
+</html>

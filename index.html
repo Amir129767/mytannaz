@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#fff0f3">
+    <meta name="description" content="یک دنیای کوچک و رؤیایی برای طناز">
+
+    <title>دنیای طناز من ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="floating-hearts" id="floatingHearts" aria-hidden="true"></div>
+
+    <main class="main-container">
+
+        <header class="top-header">
+            <div class="brand">
+                <span class="brand-heart">♥</span>
+                <span>دنیای طناز</span>
+            </div>
+
+            <button
+                class="music-button"
+                id="musicButton"
+                type="button"
+                aria-pressed="false"
+                aria-label="پخش موسیقی"
+            >
+                <span id="musicIcon" aria-hidden="true">♫</span>
+                <span id="musicText">پخش موسیقی</span>
+            </button>
+        </header>
+
+        <!-- صفحه خوشامدگویی -->
+
+        <section class="welcome-section" id="welcomeSection">
+
+            <div class="decorative-heart heart-top" aria-hidden="true">♡</div>
+
+            <div class="small-label">
+                <span class="label-star" aria-hidden="true">✧</span>
+                یه دنیای کوچیک فقط برای تو
+                <span class="label-star" aria-hidden="true">✧</span>
+            </div>
+
+            <div class="main-heart" aria-hidden="true">
+                <div class="heart-shape">♥</div>
+                <span class="heart-sparkle sparkle-one">✧</span>
+                <span class="heart-sparkle sparkle-two">✦</span>
+                <span class="heart-sparkle sparkle-three">✧</span>
+            </div>
+
+            <h1>
+                سلام
+                <span class="name-highlight">طناز</span>
+                <span class="title-heart" aria-hidden="true">♥</span>
+            </h1>
+
+            <p class="welcome-description">
+                اینجا یه گوشه‌ی کوچیک از دنیاست
+                <br>
+                که با فکر تو ساخته شده
+            </p>
+
+            <div class="decorative-divider" aria-hidden="true">
+                <span></span>
+                <span class="divider-heart">♥</span>
+                <span></span>
+            </div>
+
+            <p class="invitation-text">
+                آماده‌ای یه ماجراجویی قشنگ رو شروع کنیم؟
+            </p>
+
+            <button class="start-button" id="startButton" type="button">
+                <span>بیا شروع کنیم</span>
+                <span class="button-heart" aria-hidden="true">♡</span>
+            </button>
+
+            <p class="bottom-note">
+                ساخته شده با کلی حس خوب برای تو
+                <span aria-hidden="true">♡</span>
+            </p>
+
+        </section>
+
+        <!-- بخش نامه عاشقانه -->
+
+        <section
+            class="letter-section"
+            id="letterSection"
+            aria-labelledby="letterHeading"
+            hidden
+        >
+
+            <div class="letter-intro">
+                <span class="letter-eyebrow">یه چیزی فقط برای تو 💗</span>
+
+                <h2 id="letterHeading">
+                    یه نامه از طرف من
+                </h2>
+
+                <p>
+                    یه پاکت کوچیک هست که حرف‌های قشنگی توی دلش داره
+                </p>
+            </div>
+
+            <!-- پاکت نامه -->
+
+            <div class="envelope-scene" id="envelopeScene">
+
+                <button
+                    class="envelope"
+                    id="envelopeButton"
+                    type="button"
+                    aria-label="باز کردن نامه عاشقانه"
+                    aria-expanded="false"
+                    aria-controls="letterPaper"
+                >
+
+                    <span class="envelope-shadow"></span>
+
+                    <span class="envelope-letter-preview" aria-hidden="true">
+                        <span>برای عشقممم</span>
+                        <span class="preview-heart">♥</span>
+                    </span>
+
+                    <span class="envelope-back"></span>
+
+                    <span class="envelope-flap" aria-hidden="true"></span>
+
+                    <span class="envelope-front"></span>
+
+                    <span class="envelope-heart-seal" aria-hidden="true">
+                        ♥
+                    </span>
+
+                    <span class="envelope-sparkle envelope-sparkle-one" aria-hidden="true">✧</span>
+                    <span class="envelope-sparkle envelope-sparkle-two" aria-hidden="true">✦</span>
+
+                </button>
+
+            </div>
+
+            <p class="envelope-hint" id="envelopeHint">
+                روی پاکت بزن تا نامه‌ات رو باز کنی 💌
+            </p>
+
+            <!-- محتوای نامه -->
+
+            <article
+                class="letter-paper"
+                id="letterPaper"
+                tabindex="-1"
+                aria-label="متن نامه عاشقانه"
+                hidden
+            >
+
+                <div class="paper-decoration paper-decoration-top" aria-hidden="true">
+                    ♥
+                </div>
+
+                <div class="paper-header">
+                    <span>برای عزیزترین آدم دنیام</span>
+                    <span class="paper-heart" aria-hidden="true">♥</span>
+                </div>
+
+                <div class="paper-divider" aria-hidden="true">
+                    <span></span>
+                    <span>✧</span>
+                    <span></span>
+                </div>
+
+                <div class="letter-content" id="letterContent">
+                    <p class="letter-loading">
+                        داریم نامه رو آماده می‌کنیم... 💗
+                    </p>
+                </div>
+
+                <div class="paper-footer">
+                    <span>با یه دنیا حس خوب</span>
+                    <span class="paper-footer-heart" aria-hidden="true">♥ ♥ ♥</span>
+                </div>
+
+                <div class="paper-decoration paper-decoration-bottom" aria-hidden="true">
+                    ♥
+                </div>
+
+            </article>
+
+            <button
+                class="close-letter-button"
+                id="closeLetterButton"
+                type="button"
+                hidden
+            >
+                بستن نامه و برگشتن به پاکت
+                <span aria-hidden="true">♡</span>
+            </button>
+
+            <button
+                class="back-home-button"
+                id="backHomeButton"
+                type="button"
+            >
+                برگشت به صفحه اول
+            </button>
+
+        </section>
+
+        <footer class="page-footer">
+            <span>دنیای کوچیک ما</span>
+            <span class="footer-separator" aria-hidden="true">♥</span>
+            <span>پر از حس‌های قشنگ</span>
+        </footer>
+
+    </main>
+
+    <div
+        class="toast-message"
+        id="toastMessage"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <audio id="backgroundMusic" loop preload="none">
+        <source src="assets/music/background.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>کادوهای طناز من ❤️</title>
+    <meta name="description" content="شش کادوی کوچولو برای قشنگ‌ترین آدم دنیام">
+
+    <link rel="stylesheet" href="../css/gifts.css">
+    <script src="../js/gifts.js" defer></script>
+</head>
+
+<body>
+
+    <div class="background-hearts" id="backgroundHearts" aria-hidden="true"></div>
+
+    <main class="gifts-page">
+
+        <header class="page-header">
+            <span class="eyebrow">A LITTLE SURPRISE FOR YOU</span>
+
+            <h1>
+                کادوهای تو
+                <span class="heart">♥</span>
+            </h1>
+
+            <p class="subtitle">
+                ماه قشنگم این شش تا کادو فقط برای توئه
+            </p>
+
+            <p class="instruction">
+                روی هر جعبه بزن تا سورپرایزت رو ببینی 🎀
+            </p>
+        </header>
+
+        <!-- جعبه‌های کادو -->
+        <section class="gifts-grid" aria-label="شش کادوی طناز">
+
+            <button class="gift-card" type="button"
+                data-gift="0" aria-label="باز کردن کادوی اول">
+                <span class="gift-number">01</span>
+                <span class="gift-box box-pink" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">برای ماه من</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+            <button class="gift-card" type="button"
+                data-gift="1" aria-label="باز کردن کادوی دوم">
+                <span class="gift-number">02</span>
+                <span class="gift-box box-lilac" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">یه چیز مخصوص تو</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+            <button class="gift-card" type="button"
+                data-gift="2" aria-label="باز کردن کادوی سوم">
+                <span class="gift-number">03</span>
+                <span class="gift-box box-cream" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">برای لبخندت</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+            <button class="gift-card" type="button"
+                data-gift="3" aria-label="باز کردن کادوی چهارم">
+                <span class="gift-number">04</span>
+                <span class="gift-box box-rose" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">یه یادگاری قشنگ</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+            <button class="gift-card" type="button"
+                data-gift="4" aria-label="باز کردن کادوی پنجم">
+                <span class="gift-number">05</span>
+                <span class="gift-box box-peach" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">از ته دلم برای تو</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+            <button class="gift-card" type="button"
+                data-gift="5" aria-label="باز کردن کادوی ششم">
+                <span class="gift-number">06</span>
+                <span class="gift-box box-red" aria-hidden="true">
+                    <span class="box-lid"></span>
+                    <span class="box-body"></span>
+                    <span class="box-ribbon"></span>
+                    <span class="box-bow"></span>
+                    <span class="box-heart">♥</span>
+                </span>
+                <span class="gift-caption">آخرین سورپرایز</span>
+                <span class="gift-hint">بازش کن ❤️</span>
+            </button>
+
+        </section>
+
+        <!-- نمایش کادوی بازشده -->
+        <section class="gift-modal" id="giftModal"
+            role="dialog" aria-modal="true"
+            aria-labelledby="modalTitle" hidden>
+
+            <div class="modal-content">
+
+                <button class="close-modal" id="closeModal"
+                    type="button" aria-label="بستن کادو">
+                    ×
+                </button>
+
+                <div class="opened-gift" id="openedGift">
+                    <span class="opened-lid"></span>
+                    <span class="opened-box"></span>
+                    <span class="opened-ribbon"></span>
+                    <span class="opened-heart">♥</span>
+                </div>
+
+                <p class="modal-eyebrow">JUST FOR YOU ❤️</p>
+
+                <h2 id="modalTitle">سورپرایز تو</h2>
+
+                <div class="gift-photo-frame">
+                    <img id="giftPhoto" src="" alt="عکس کادوی طناز">
+                </div>
+
+                <p class="gift-message" id="giftMessage"></p>
+
+                <button class="back-to-gifts" id="backToGifts"
+                    type="button">
+                    برگشت به کادوها ❤️
+                </button>
+
+            </div>
+        </section>
+
+        <!-- متن عاشقانه پایین صفحه -->
+        <section class="love-note">
+            <span class="note-heart">♥</span>
+
+            <h2>برای قشنگ‌ترین آدم دنیام</h2>
+
+            <p>
+                این کادوها شاید فقط چند تا هدیه باشن
+                اما پشت هر کدومشون یه عالمه ذوق و فکر و حس قشنگه
+                که دلم می‌خواست با تو قسمت کنم
+                <br>
+                امیدوارم وقتی هر کدومشون رو می‌بینی
+                یه لبخند کوچولو روی لبات بشینه
+                و یادت بیاد که یه نفر هست که دوست داره
+                خوشحالیت رو ببینه ❤️
+            </p>
+
+            <span class="note-signature">با تمام قلبم برای تو ❤️</span>
+        </section>
+
+        <!-- پخش صدای صفحه -->
+        <section class="voice-player">
+            <audio id="giftsVoice" preload="auto" loop>
+                <source
+                    src="../assets/music/gifts-voice.mp3"
+                    type="audio/mpeg">
+            </audio>
+
+            <button id="voiceButton" type="button">
+                🎵 پخش صدای مخصوص تو
+            </button>
+
+            <p id="voiceStatus" role="status">
+                یه صدای کوچولو هم مخصوص تو آماده کردم ❤️
+            </p>
+        </section>
+
+        <a class="back-home" href="tree.html">
+            ♥ برگشت به دنیای طناز ♥
+        </a>
+
+        <footer>
+            ساخته شده با تمام قلب امیرمحمد برای طناز ❤️
+        </footer>
+
+    </main>
+
+</body>
+</html>

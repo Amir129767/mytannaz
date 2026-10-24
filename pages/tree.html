@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>درخت قلب‌های طناز ❤️</title>
+
+    <link rel="stylesheet" href="../css/tree.css">
+    <script src="../js/tree.js" defer></script>
+</head>
+
+<body>
+
+    <div class="night-sky"></div>
+    <div class="moon"></div>
+
+    <div class="stars" id="stars"></div>
+    <div class="floating-lights" id="floatingLights"></div>
+
+    <header class="page-heading">
+        <span class="heading-small">دنیای کوچیک من و تو</span>
+
+        <h1>
+            به باغ قلب‌هامون خوش اومدی
+            <span class="heading-heart">♥</span>
+        </h1>
+
+        <p>
+            طناز من اینجا هر قلب یه قصه داره
+            قصه‌ای که فقط تو می‌تونی بازش کنی
+        </p>
+    </header>
+
+    <main class="garden">
+
+        <div class="garden-glow"></div>
+
+        <div class="tree-container">
+
+            <!-- درخت اصلی -->
+            <svg
+                class="heart-tree"
+                viewBox="0 0 600 650"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="درخت جادویی قلب‌ها"
+            >
+
+                <defs>
+                    <linearGradient id="trunkGradient" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#60314f"/>
+                        <stop offset="35%" stop-color="#a45b80"/>
+                        <stop offset="65%" stop-color="#744065"/>
+                        <stop offset="100%" stop-color="#3d254b"/>
+                    </linearGradient>
+
+                    <linearGradient id="branchGradient" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stop-color="#f3b5d5"/>
+                        <stop offset="50%" stop-color="#a965a0"/>
+                        <stop offset="100%" stop-color="#573657"/>
+                    </linearGradient>
+
+                    <radialGradient id="leafGlow">
+                        <stop offset="0%" stop-color="#ffc9ed" stop-opacity="0.8"/>
+                        <stop offset="100%" stop-color="#a84f9a" stop-opacity="0"/>
+                    </radialGradient>
+
+                    <filter id="treeGlow">
+                        <feGaussianBlur stdDeviation="5" result="blur"/>
+                        <feMerge>
+                            <feMergeNode in="blur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+
+                <!-- نور پشت درخت -->
+                <ellipse
+                    cx="300"
+                    cy="350"
+                    rx="225"
+                    ry="240"
+                    fill="url(#leafGlow)"
+                    opacity="0.65"
+                />
+
+                <!-- تنه اصلی -->
+                <path
+                    d="M265 600
+                       C270 530 260 465 278 405
+                       C286 370 275 340 250 305
+                       L218 265
+                       C207 250 215 238 228 249
+                       L282 305
+                       C289 265 275 230 264 207
+                       C258 194 273 186 281 201
+                       L306 272
+                       C330 230 348 203 363 184
+                       C373 171 386 183 377 196
+                       L329 291
+                       C340 322 349 350 342 390
+                       C359 455 350 535 363 600
+                       Z"
+                    fill="url(#trunkGradient)"
+                    stroke="#e9a4ce"
+                    stroke-opacity="0.55"
+                    stroke-width="2"
+                />
+
+                <!-- شاخه‌های سمت چپ -->
+                <g
+                    fill="none"
+                    stroke="url(#branchGradient)"
+                    stroke-linecap="round"
+                    filter="url(#treeGlow)"
+                >
+                    <path d="M280 410 Q225 365 175 315" stroke-width="15"/>
+                    <path d="M247 365 Q198 350 145 365" stroke-width="9"/>
+                    <path d="M220 330 Q214 275 170 250" stroke-width="10"/>
+                    <path d="M200 337 Q155 300 125 306" stroke-width="8"/>
+                    <path d="M267 325 Q240 270 240 225" stroke-width="9"/>
+                    <path d="M173 315 Q135 275 135 235" stroke-width="7"/>
+
+                    <!-- شاخه‌های سمت راست -->
+                    <path d="M337 410 Q390 360 435 305" stroke-width="15"/>
+                    <path d="M362 365 Q420 340 462 360" stroke-width="9"/>
+                    <path d="M390 335 Q395 278 430 245" stroke-width="10"/>
+                    <path d="M413 332 Q458 298 482 300" stroke-width="8"/>
+                    <path d="M337 320 Q365 265 365 220" stroke-width="9"/>
+                    <path d="M435 305 Q473 268 470 230" stroke-width="7"/>
+                </g>
+
+                <!-- تاج درخت -->
+                <g fill="url(#leafGlow)" opacity="0.8">
+                    <circle cx="180" cy="285" r="70"/>
+                    <circle cx="240" cy="235" r="75"/>
+                    <circle cx="315" cy="220" r="82"/>
+                    <circle cx="390" cy="250" r="75"/>
+                    <circle cx="440" cy="290" r="65"/>
+                    <circle cx="300" cy="300" r="90"/>
+                </g>
+
+                <!-- ریشه‌ها -->
+                <path
+                    d="M285 575 Q240 605 205 595
+                       M300 590 Q300 615 275 625
+                       M340 575 Q380 610 415 595"
+                    fill="none"
+                    stroke="#9b608d"
+                    stroke-width="10"
+                    stroke-linecap="round"
+                />
+
+            </svg>
+
+            <!-- قلب‌های میوه درخت -->
+            <button
+                class="fruit fruit-pink"
+                style="--x: 24%; --y: 27%; --delay: 0s"
+                data-page="letter.html"
+                data-title="نامه من به تو"
+                aria-label="نامه من به تو"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">نامه من</span>
+            </button>
+
+            <button
+                class="fruit fruit-purple"
+                style="--x: 43%; --y: 19%; --delay: .4s"
+                data-page="birth-month.html"
+                data-title="ماه تولدت"
+                aria-label="ماه تولدت"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">ماه تو</span>
+            </button>
+
+            <button
+                class="fruit fruit-gold"
+                style="--x: 66%; --y: 28%; --delay: .8s"
+                data-page="birthday.html"
+                data-title="تقویم تولدت"
+                aria-label="تقویم تولدت"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">تولد تو</span>
+            </button>
+
+            <button
+                class="fruit fruit-red"
+                style="--x: 15%; --y: 43%; --delay: .6s"
+                data-page="gifts.html"
+                data-title="کادوهای تو"
+                aria-label="کادوهای تو"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">کادوهای تو</span>
+            </button>
+
+            <button
+                class="fruit fruit-blue"
+                style="--x: 76%; --y: 44%; --delay: 1s"
+                data-page="memories.html"
+                data-title="خاطرات دونفره‌مون"
+                aria-label="خاطرات دونفره‌مون"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">خاطرات ما</span>
+            </button>
+
+            <button
+                class="fruit fruit-lilac"
+                style="--x: 47%; --y: 39%; --delay: 1.2s"
+                data-page="my-voice.html"
+                data-title="صدای من برای تو"
+                aria-label="صدای من برای تو"
+            >
+                <svg viewBox="0 0 100 100">
+                    <path d="M50 87 C40 77 8 53 8 31
+                             C8 7 37 1 50 24
+                             C63 1 92 7 92 31
+                             C92 53 60 77 50 87Z"/>
+                </svg>
+                <span class="fruit-label">صدای من</span>
+            </button>
+
+        </div>
+
+        <div class="garden-flowers" aria-hidden="true">
+            <span>🌸</span>
+            <span>✿</span>
+            <span>🌷</span>
+            <span>✿</span>
+            <span>🌸</span>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <p>هر قلب این درخت یه تیکه از قلب منه ❤️</p>
+        <button id="backButton" type="button">
+            برگشت به صفحه اول
+        </button>
+    </footer>
+
+    <!-- افکت باز شدن قلب -->
+    <div class="heart-transition" id="heartTransition">
+        <div class="transition-heart">♥</div>
+        <p id="transitionText">یه قصه مخصوص تو...</p>
+    </div>
+
+</body>
+</html>

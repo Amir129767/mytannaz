@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="صدای من برای طناز؛ گوشه‌ای کوچک از دنیای عاشقانه‌ی ما ❤️"
+    >
+
+    <meta name="theme-color" content="#170d2b">
+
+    <title>صدای من برای تو ❤️</title>
+
+    <link rel="stylesheet" href="../css/my-voice.css">
+
+    <script src="../js/my-voice.js" defer></script>
+</head>
+
+<body>
+    <!-- پس‌زمینه‌ی رؤیایی -->
+    <div class="night-sky" aria-hidden="true">
+        <div class="background-glow"></div>
+        <div class="moon"></div>
+        <div id="stars"></div>
+        <div id="floatingLights"></div>
+    </div>
+
+    <!-- محتوای اصلی صفحه -->
+    <main class="voice-page">
+
+        <!-- عنوان صفحه -->
+        <header class="page-header">
+            <span class="header-decoration" aria-hidden="true">♡</span>
+
+            <h1>صدای من برای تو</h1>
+
+            <p class="page-subtitle">
+                اینجا جاییه که قلبم با صدای خودش باهات حرف می‌زنه
+            </p>
+        </header>
+
+        <!-- قلب اصلی -->
+        <section
+            class="heart-section"
+            aria-label="قلب تپنده‌ی صفحه‌ی صدای من"
+        >
+            <div class="heart-glow" aria-hidden="true"></div>
+
+            <div class="heart-container" id="heartContainer">
+                <div class="heart-pulse-ring ring-one" aria-hidden="true"></div>
+                <div class="heart-pulse-ring ring-two" aria-hidden="true"></div>
+
+                <div
+                    class="main-heart"
+                    id="mainHeart"
+                    role="img"
+                    aria-label="قلب صورتی درخشان"
+                >
+                    <span class="heart-symbol" aria-hidden="true">♥</span>
+                    <span class="heart-shine" aria-hidden="true"></span>
+                </div>
+
+                <div class="heart-sparkles" id="heartSparkles" aria-hidden="true"></div>
+            </div>
+
+            <p class="heart-caption" id="heartCaption">
+                یه صدا از من برای قشنگ‌ترین آدم دنیام ❤️
+            </p>
+        </section>
+
+        <!-- پخش‌کننده‌ی صدا -->
+        <section class="audio-section" aria-labelledby="audioTitle">
+
+            <div class="audio-card">
+                <div class="audio-card-heading">
+                    <span class="audio-icon" aria-hidden="true">♫</span>
+
+                    <div>
+                        <h2 id="audioTitle">صدای من</h2>
+
+                        <p id="audioDescription">
+                            هر وقت دلت خواست می‌تونی صدام رو بشنوی
+                        </p>
+                    </div>
+                </div>
+
+                <!-- موج صوتی تزئینی -->
+                <div
+                    class="sound-wave"
+                    id="soundWave"
+                    role="img"
+                    aria-label="موج متحرک صدا"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <!-- فایل صوتی -->
+                <audio
+                    id="myVoiceAudio"
+                    preload="metadata"
+                    controls
+                    aria-label="پخش صدای ضبط‌شده"
+                >
+                    <source src="../assets/audio/my-voice.mp3" type="audio/mpeg">
+
+                    مرورگر شما از پخش فایل صوتی پشتیبانی نمی‌کند.
+                </audio>
+
+                <p class="audio-note" id="audioNote" aria-live="polite">
+                    صدای من اینجاست؛ منتظر اولین پخشه ❤️
+                </p>
+            </div>
+
+        </section>
+
+        <!-- متن اختصاصی -->
+        <section class="message-section">
+            <div class="message-card">
+
+                <span class="message-heart" aria-hidden="true">♡</span>
+
+                <h2>چند کلمه از من برای تو</h2>
+
+                <p class="personal-message" id="personalMessage">
+                    در حال آماده‌سازی حرف‌هام برای تو... ❤️
+                </p>
+
+                <p class="message-signature">
+                    از طرف من، برای تو ❤️
+                </p>
+
+            </div>
+        </section>
+
+        <!-- بازگشت به درخت -->
+        <footer class="page-footer">
+            <button
+                type="button"
+                class="back-button"
+                id="backToTreeButton"
+            >
+                <span aria-hidden="true">♡</span>
+                بازگشت به درخت عشق
+            </button>
+
+            <p class="footer-text">
+                بعضی صداها فقط شنیده نمی‌شن؛ توی قلب آدم می‌مونن ❤️
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- پیام‌های وضعیت -->
+    <div
+        class="page-message"
+        id="pageMessage"
+        role="status"
+        aria-live="polite"
+        hidden
+    ></div>
+
+</body>
+</html>
